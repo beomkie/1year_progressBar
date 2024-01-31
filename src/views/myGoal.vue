@@ -7,48 +7,30 @@
             Goal
             </h1>
         </header>
-        <div class="current-goal">
-            <h3 style="font-weight: 500;">나의 {{ currentYear }}년 목표</h3>
-            <!-- 카드영역1 -->
-            <b-card bg-variant="dark" text-variant="white" 
-            :title="cardTitle" 
-            
-            style="margin-right: 25px; margin-top: 20px; margin-bottom: 0px;"
-            >
-                <b-card-text>
-                    올해가 끝나기 전까지 1,000만원 모으기
-                </b-card-text>
-                <b-button
-                v-for="card in cards"
-                :key="card.key"
-                @click="toggleCard(card.key)" 
-                :variant="card.status ? 'success' : 'danger'"
-                >
+        <div>
+            <div v-for="card in cards" :key="card.key">
+            <!-- 카드 정보를 표시하는 부분 -->
+            <div>
+                <span>이모지: {{ card.emoji }}</span>
+                <h3>{{ card.title }}</h3>
+                <p>{{ card.content }}</p>
+                <!-- 다른 카드 속성들을 필요에 따라 표시 -->
+            </div>
+            <b-button @click="toggleCard(card.key)" :variant="card.status ? 'success' : 'danger'">
                 {{ card.status ? '달성' : '미달성' }}
-                </b-button>
-            </b-card>
-
+            </b-button>
+            </div>
+            <b-button @click="goToAddCardPage" variant="primary" style="margin-left: 0px; margin-top: 30px;">
+            새로운 카드 추가
+            </b-button>
         </div>
     </div>
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
-    data() {
-        return {
-            emoji:'💵',
-            title: '1,000만 원 모으기',
-            status: false,
-            value: 45,
-            max: 100,
-            cards:Array.from({ length: 1 }, () => ({
-            key: uuidv4(), // 랜덤한 키 생성
-            status: false,
-            })),
-        }
-    },
     computed: {
         currentYear() {
             const currentDate = new Date();
@@ -56,36 +38,13 @@ export default {
 
             return currentYear;
         },
-        cardTitle() {
-            return `${this.emoji} ${this.title}`;
-        },
-
-        totalCards() {
-        return this.cards.length; // 전체 카드 수
-        },
-        achievedCards() {
-        return this.cards.filter((card) => card.status).length; // 달성된 카드 수
-        },
-        unAchievedCards() {
-        return this.totalCards - this.achievedCards; // 미달성된 카드 수
-        },
-        achievementRate() {
-        return (this.achievedCards / this.totalCards) * 100; // 전체 달성률
-        },
-        unAchievementRate() {
-        return (this.unAchievedCards / this.totalCards) * 100; // 미달성률
-        },
+        ...mapState(['cards']),
 
     },
     methods: {
-        toggleCard(cardKey) {
-            const index = this.cards.findIndex((card) => card.key === cardKey);
-            if (index !== -1) {
-                this.$set(this.cards, index, {
-                    key: cardKey,
-                    status: !this.cards[index].status,
-                });
-            }
+        ...mapMutations(['toggleCard']),
+        goToAddCardPage() {
+        this.$router.push('/addcard');
         },
     }
 }
