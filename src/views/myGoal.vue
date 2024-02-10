@@ -1,12 +1,8 @@
 <template>
     <div>
-        <header>
-            <h1 
-            style="font-weight: 600; margin-left: -230px; margin-top: 50px; font-size: 35px; color: black;"
-            >
-            Goal
-            </h1>
-        </header>
+        <div>
+            <Header title="Goal" />
+        </div>
         <div>
             <div v-for="card in cards" :key="card.key">
             <!-- 카드 정보를 표시하는 부분 -->
@@ -29,8 +25,12 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
+import Header from '@/components/headerSet.vue';
 
 export default {
+    components: {
+        Header,
+    },
     computed: {
         currentYear() {
             const currentDate = new Date();

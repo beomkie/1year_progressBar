@@ -1,12 +1,8 @@
 <template>
     <div>
-        <header>
-            <h1 
-            style="font-weight: 600; margin-left: -250px; margin-top: 50px; font-size: 35px;"
-            >
-            MY
-            </h1>
-        </header>
+        <div>
+            <Header title="My"/>
+        </div>
         <div class="user-data">
             <h1 style="font-weight: 600;">{{ user.nickname }}</h1>
             <p style="font-size: 13px;">{{ user.email }}</p>
@@ -28,8 +24,12 @@
 </template>
 
 <script>
+import Header from '@/components/headerSet.vue';
 
 export default {
+    components: {
+        Header,
+    },
     data() {
         return {
             user: {
