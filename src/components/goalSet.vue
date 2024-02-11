@@ -103,7 +103,6 @@
         this.form.subject = ''
         this.form.text = ''
         this.form.icon = null
-        this.form.checked = []
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
