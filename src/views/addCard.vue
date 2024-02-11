@@ -7,7 +7,6 @@
           <goalSet />
         </div>
     </div>
-    
 </template>
 
 <script>

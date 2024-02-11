@@ -83,9 +83,9 @@
     data() {
       return {
         form: {
+          icon: null,
           subject: '',
           text: '',
-          icon: null,
         },
         selectedEmoji: '',
         icon: [{ text: '아이콘 선택하기', value: null }, '🏃', '📚', '💵', '🏠'],
