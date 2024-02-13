@@ -6,7 +6,7 @@
           <b-navbar-nav class="custom-navbar-nav" style="padding-left:20px;">
             <b-nav-item @click="selectedNavItem = 'home'" to="/" :style="{ fontWeight: selectedNavItem === 'home' ? 'bold' : 'normal', color: selectedNavItem === 'home' ? 'white' : 'inherit' }">Home</b-nav-item>
             <b-nav-item @click="selectedNavItem = 'goal'" to="/mygoal" :style="{ fontWeight: selectedNavItem === 'goal' ? 'bold' : 'normal', color: selectedNavItem === 'goal' ? 'white' : 'inherit' }">Goal</b-nav-item>
-            <b-nav-item @click="selectedNavItem = 'about'" to="/about" :style="{ fontWeight: selectedNavItem === 'about' ? 'bold' : 'normal', color: selectedNavItem === 'about' ? 'white' : 'inherit' }">(Empty)</b-nav-item>
+            <b-nav-item @click="selectedNavItem = 'feed'" to="/feedView" :style="{ fontWeight: selectedNavItem === 'feed' ? 'bold' : 'normal', color: selectedNavItem === 'feed' ? 'white' : 'inherit' }">Feed</b-nav-item>
             <b-nav-item @click="selectedNavItem = 'myprofile'" to="/myprofile" :style="{ fontWeight: selectedNavItem === 'myprofile' ? 'bold' : 'normal', color: selectedNavItem === 'myprofile' ? 'white' : 'inherit' }">MY</b-nav-item>
           </b-navbar-nav>
         </b-collapse>

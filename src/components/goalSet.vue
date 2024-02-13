@@ -12,7 +12,7 @@
       </b-form-group>
       <!-- 목표 내용 입력 -->
       <b-form-group id="input-group-2" label="도달하고자 하는 목표를 구체화해보세요:" label-for="input-2" class="label-style">
-        <b-form-textarea id="input-2" v-model="form.text" placeholder="도달하고자 하는 목표를 구체적으로 작성해보세요." rows="3" max-rows="6" required></b-form-textarea>
+        <b-form-textarea id="input-2" v-model="form.text" placeholder="도달하고자 하는 목표를 구체적으로 작성해보세요." rows="3" max-rows="100" required></b-form-textarea>
       </b-form-group>
       <!-- 규칙 선택 -->
       <b-form-group id="input-group-4" label="규칙 설정하기:" class="label-style">
@@ -21,7 +21,8 @@
       <!-- 규칙에 따른 추가 입력 필드 -->
       <template v-if="form.rule === '매주'">
         <b-form-group id="input-group-5" label="요일 선택하기:" class="label-style">
-          <b-form-select v-model="form.day" :options="days" required></b-form-select>
+          <b-form-select v-model="form.days" :options="days" required multiple></b-form-select>
+          <b-form-input v-model="form.time" type="time" required></b-form-input>
         </b-form-group>
       </template>
       <template v-else-if="form.rule === '매일'">
@@ -32,6 +33,7 @@
       <template v-else-if="form.rule === '매월'">
         <b-form-group id="input-group-7" label="날짜 선택하기:" class="label-style">
           <b-form-input v-model="form.date" type="date" required></b-form-input>
+          <b-form-select v-model="form.rule" :options="timeRange" required></b-form-select>
         </b-form-group>
       </template>
       <!-- 제출 버튼 -->
@@ -52,15 +54,16 @@ export default {
         icon: null,
         subject: '',
         text: '',
-        rule: null, // 새로운 폼 필드: 규칙 선택
-        day: null, // 새로운 폼 필드: 요일 선택
-        time: null, // 새로운 폼 필드: 시간 선택
-        date: null, // 새로운 폼 필드: 날짜 선택
+        rule: null, // 규칙 선택
+        day: [], // 요일 선택
+        time: null, // 시간 선택
+        date: null, // 날짜 선택
       },
       icon: [{ text: '아이콘 선택하기', value: null }, '🏃', '📚', '💵', '🏠'],
       rules: ['매주', '매일', '매월'], // 새로운 폼 필드: 규칙 선택 옵션
-      days: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'], // 새로운 폼 필드: 요일 선택 옵션
+      days: ['월', '화', '수', '목', '금요일', '토요일', '일요일'], // 새로운 폼 필드: 요일 선택 옵션
       show: true,
+      timeRange: ['오전', '오후']
     };
   }, 
   methods: {

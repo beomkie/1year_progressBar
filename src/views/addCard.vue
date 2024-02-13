@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-          <Header title="추가하기" />
+          <HeaderBack title="추가하기" />
         </div>
         <div>
           <goalSet />
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import Header from '@/components/headerSet.vue';
+import HeaderBack from '@/components/headerBack.vue';
 import goalSet from '@/components/goalSet.vue';
 
 export default {
   components: {
-    Header,
+    HeaderBack,
     goalSet,
   },
   

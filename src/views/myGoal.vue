@@ -4,6 +4,12 @@
             <Header title="Goal" />
         </div>
         <div>
+            <p>{{ currentYear }}년 나의 목표</p>
+        </div>
+        <div>
+            
+        </div>
+        <div>
             <b-button @click="goToAddCardPage" variant="primary" style="margin-left: 0px; margin-top: 30px;">
             새로운 카드 추가
             </b-button>
