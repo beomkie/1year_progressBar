@@ -20,7 +20,7 @@ export default {
   font-weight: 600;
   text-align: left;
   margin-left: 25px;
-  margin-top: 50px;
+  margin-top: 80px;
   font-size: 35px;
   color: black;
 }

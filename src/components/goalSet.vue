@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- 폼 -->
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="subject-style">
+    <b-form @submit="onSubmit" @reset="submitForm" v-if="show" class="subject-style">
       <!-- 아이콘 선택 -->
       <b-form-group id="input-group-3" label="아이콘 선택하기:" class="icon-select-style">
         <b-form-select v-model="form.icon" :options="icon" required></b-form-select>
       </b-form-group>
       <!-- 목표 제목 입력 -->
       <b-form-group id="input-group-1" label="목표 제목 설정하기:" label-for="input-1" description="올해 이루고자 하는 목표의 제목을 설정해보세요." class="label-style">
-        <b-form-input id="input-1" v-model="form.subject" type="string" placeholder="마음먹은 목표의 제목을 설정하세요." required></b-form-input>
+        <b-form-input id="input-1" v-model="form.subject" type="string" placeholder="목표 제목을 설정하세요." required></b-form-input>
       </b-form-group>
       <!-- 목표 내용 입력 -->
       <b-form-group id="input-group-2" label="도달하고자 하는 목표를 구체화해보세요:" label-for="input-2" class="label-style">
@@ -32,12 +32,18 @@
       </template>
       <template v-else-if="form.rule === '매월'">
         <b-form-group id="input-group-7" label="날짜 선택하기:" class="label-style">
-          <b-form-input v-model="form.date" type="date" required></b-form-input>
-          <b-form-select v-model="form.rule" :options="timeRange" required></b-form-select>
+          <b-form-select v-model="form.dates" :options="dates" required></b-form-select>
+          <b-form-select v-model="form.timeRange" :options="timeRange" required></b-form-select>
         </b-form-group>
       </template>
       <!-- 제출 버튼 -->
-      <b-button type="submit" variant="primary" style="margin:20px;">목표 세우기</b-button>
+      <b-button 
+        type="submit" 
+        variant="primary" 
+        style="margin:20px;"
+        >
+        목표 세우기
+      </b-button>
     </b-form>
     <!-- 결과 카드 바인딩 테스트용 -->
     <b-card class="mt-3" header="Form Data Result">
@@ -58,18 +64,20 @@ export default {
         day: [], // 요일 선택
         time: null, // 시간 선택
         date: null, // 날짜 선택
+        dates: null, // 날짜만 선택할 때
       },
       icon: [{ text: '아이콘 선택하기', value: null }, '🏃', '📚', '💵', '🏠'],
       rules: ['매주', '매일', '매월'], // 새로운 폼 필드: 규칙 선택 옵션
       days: ['월', '화', '수', '목', '금요일', '토요일', '일요일'], // 새로운 폼 필드: 요일 선택 옵션
       show: true,
-      timeRange: ['오전', '오후']
+      timeRange: ['오전', '오후'],
+      dates: Array.from({ length: 31 }, (_, i) => i + 1),      
     };
   }, 
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
+    submitForm() {
+      this.$emit('formsubmit', this.form);
+      this.$router.push('/mygoal');
     },
     onReset(event) {
       event.preventDefault();
@@ -81,7 +89,8 @@ export default {
       this.form.day = null;
       this.form.time = null;
       this.form.date = null;
-      // Trick to reset/clear native browser form validation state
+      this.form.timeRange = null;
+      this.form.dates = null;
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
