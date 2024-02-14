@@ -11,12 +11,35 @@ import cardDetail from '@/views/cardDetail'
 Vue.use(VueRouter)
 
 const routes = [
-{ path: '/', component: yearProgress },
-{ path: '/myprofile', component: myProfile },
-{ path: '/mygoal', component: myGoal },
-{ path: '/addcard', component: addCard },
-{ path: '/feedView', component: feedView },
-{ path: '/cardDetail', component: cardDetail },
+{ 
+  path: '/', 
+  name: 'Home',
+  component: yearProgress },
+{ 
+  path: '/myprofile', 
+  name: 'myProfile',
+  component: myProfile 
+},
+{ 
+  path: '/mygoal', 
+  name: 'myGoal',
+  component: myGoal 
+},
+{ 
+  path: '/addcard', 
+  name: 'addCard',
+  component: addCard 
+},
+{ 
+  path: '/feedView', 
+  name: 'feedView',
+  component: feedView 
+},
+{ 
+  path: '/cardDetail/:id', 
+  name: 'cardDetail',
+  component: cardDetail 
+},
 
 
 // 추가적인 라우트 정의

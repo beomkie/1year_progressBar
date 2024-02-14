@@ -7,18 +7,6 @@
             <h1 style="font-weight: 600;">{{ user.nickname }}</h1>
             <p style="font-size: 13px;">{{ user.email }}</p>
         </div>
-
-        <div class="goal-rate">
-            <h3 style="font-weight: 500; margin-top: 60px;">전체 달성률</h3>
-
-            <b-progress :value="value" :max="max" show-progress animated></b-progress>
-            <b-progress class="mt-2" :max="max" show-value>
-            <b-progress-bar :value="achievementRate" variant="success"></b-progress-bar>
-            <b-progress-bar :value="unAchievementRate" variant="warning"></b-progress-bar>
-            <b-progress-bar :value="value * (1.5 / 10)" variant="danger"></b-progress-bar>
-            </b-progress>
-            
-        </div>
         
     </div>
 </template>
