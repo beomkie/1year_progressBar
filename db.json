@@ -10,6 +10,28 @@
       "time": "12:59",
       "date": null,
       "dates": null
+    },
+    {
+      "id": "c784",
+      "icon": "📚",
+      "subject": "돈 벌자",
+      "text": "돈벌자",
+      "rule": "매일",
+      "day": [],
+      "time": "12:59",
+      "date": null,
+      "dates": null
+    },
+    {
+      "id": "cee5",
+      "icon": "💵",
+      "subject": "돈돈돈",
+      "text": "돈돈돈돈",
+      "rule": "매일",
+      "day": [],
+      "time": "22:59",
+      "date": null,
+      "dates": null
     }
   ]
 }

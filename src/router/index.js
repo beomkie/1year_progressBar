@@ -5,6 +5,7 @@ import myProfile from '@/views/myProfile.vue'
 import myGoal from '@/views/myGoal'
 import addCard from '@/views/addCard'
 import feedView from '@/views/FeedView'
+import cardDetail from '@/views/cardDetail'
 
 
 Vue.use(VueRouter)
@@ -15,6 +16,7 @@ const routes = [
 { path: '/mygoal', component: myGoal },
 { path: '/addcard', component: addCard },
 { path: '/feedView', component: feedView },
+{ path: '/cardDetail', component: cardDetail },
 
 
 // 추가적인 라우트 정의
