@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 폼 -->
-    <b-form @submit="onSubmit" @reset="submitForm" v-if="show" class="subject-style">
+    <b-form @submit.prevent="submitForm" @reset="onReset" v-if="show" class="subject-style">
       <!-- 아이콘 선택 -->
       <b-form-group id="input-group-3" label="아이콘 선택하기:" class="icon-select-style">
         <b-form-select v-model="form.icon" :options="icon" required></b-form-select>
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -75,9 +77,15 @@ export default {
     };
   }, 
   methods: {
-    submitForm() {
-      this.$emit('formsubmit', this.form);
-      this.$router.push('/mygoal');
+    async submitForm() {
+      try {
+        const res = await axios.post('http://localhost:3000/card', this.form);
+        console.log('Data saved:', res.data);
+        this.$emit('formSubmitted', this.form);
+        this.$router.push('/mygoal');
+      } catch (error) {
+        console.error('Error saving data:', error);
+      }
     },
     onReset(event) {
       event.preventDefault();

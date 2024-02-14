@@ -28,6 +28,13 @@
 
 <script>
 export default {
+    methods: {
+        handleFormSubmission(formData) {
+        // 자식 컴포넌트에서 받은 데이터를 처리합니다.
+        console.log(formData);
+        // 여기서 부모 컴포넌트의 데이터를 업데이트하거나 다른 작업을 수행할 수 있습니다.
+        }
+    }
 
 }
 </script>
