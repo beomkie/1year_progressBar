@@ -1,10 +1,12 @@
 <template>
   <div>
     <div>
-      <Header :title="computedTitle" />
+      <Header :title = computedTitle />
     </div>
     <div>
-
+      <p>ID: {{ card.id }}</p>
+      <p>Subject: {{ card.subject }}</p>
+      <p>Text: {{ card.text }}</p>
     </div>
   </div>
 </template>
@@ -12,75 +14,47 @@
 <script>
 import Header from '@/components/headerSet.vue';
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 export default {
   components: {
     Header,
-  },
-  data() {
-    return {
-    }
   },
   setup() {
     const card = ref({
       id: null,
       subject: '',
       text: '',
-      rule: null,
-      day: [],
-      time: null,
-      date: null,
-      dates: null,
     });
-    const getCardData = async() => {
+
+    const CardDataFromServer = async () => {
       try {
-          // const id = this.$route.params.id;
-          // 서버에서 데이터를 가져오는 요청
-          const response = await axios.get('http://localhost:3000/card/7573');
-          // 가져온 데이터를 카드 배열에 저장
-          card.value = {...response.data};
-
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
+        const response = await axios.get('http://localhost:3000/card/7573');
+        card.value = response.data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     }
 
-    return {
-      card,
-      getCardData,
-    }
-  },
-  methods: {
-        // async CardDataFromServer() {
-        // try {
-        //   // const id = this.$route.params.id;
-        //   // 서버에서 데이터를 가져오는 요청
-        //   const response = await axios.get('http://localhost:3000/card/7573');
-        //   // 가져온 데이터를 카드 배열에 저장
-        //   card.value = response.data;
+    onMounted(() => {
+      CardDataFromServer();
+    });
 
-        // } catch (error) {
-        //   console.error('Error fetching data:', error);
-        // }
-        // },
-  },
-  computed: {
-    computedTitle() {
-      console.log(this.card)
-      // `serverData` 값을 기반으로 "Empty" 자리에 들어갈 값을 계산
-      if (this.card.subject) {
-        return this.card.subject;
+    const computedTitle = () => {
+      if (card.value.subject) {
+        return card.subject;
       } else {
         return "Error";
       }
-    },
-  }
-  
+    };
 
+    return {
+      card,
+      computedTitle
+    };
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>
