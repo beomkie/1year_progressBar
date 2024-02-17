@@ -1,8 +1,5 @@
 # 1y_progress
 
-## note
-**json-server 설치하기
-
 ## Project setup
 ```
 npm install

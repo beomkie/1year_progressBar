@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div>
-      <Header :title = computedTitle />
-    </div>
+    <header>
+      <img src="@/assets/arrow.png" alt="뒤로가기" @click="goBack" class="back-button">
+      <titleblock :title="card.subject" />
+    </header>
     <div>
       <p>ID: {{ card.id }}</p>
       <p>Subject: {{ card.subject }}</p>
@@ -12,13 +13,13 @@
 </template>
 
 <script>
-import Header from '@/components/headerSet.vue';
+import titleblock from '@/components/titleBlock.vue';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
 export default {
   components: {
-    Header,
+    titleblock,
   },
   setup() {
     const card = ref({
@@ -27,9 +28,11 @@ export default {
       text: '',
     });
 
+    const id = card.id;
+
     const CardDataFromServer = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/card/7573');
+        const response = await axios.get(`http://localhost:3000/card/${id}`);
         card.value = response.data;
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -40,18 +43,14 @@ export default {
       CardDataFromServer();
     });
 
-    const computedTitle = () => {
-      if (card.value.subject) {
-        return card.subject;
-      } else {
-        return "Error";
-      }
-    };
-
     return {
       card,
-      computedTitle
     };
+  },
+  methods: {
+    goBack() {
+      window.history.back();
+    },
   }
 }
 </script>
