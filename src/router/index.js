@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import yearProgress from '@/views/yearProgress.vue'
+import Home from '@/views/homeView.vue'
 import myProfile from '@/views/myProfile.vue'
 import myGoal from '@/views/myGoal'
 import addCard from '@/views/addCard'
@@ -14,7 +14,7 @@ const routes = [
 { 
   path: '/', 
   name: 'Home',
-  component: yearProgress },
+  component: Home },
 { 
   path: '/myprofile', 
   name: 'myProfile',
