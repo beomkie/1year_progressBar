@@ -1,10 +1,7 @@
 <template>
     <div class="progress-container">
-            <h3 style="margin-top: 50px; margin-left: -260px; font-weight: 550;">{{ currentYear }}년</h3>
+            <h3>{{ currentYear }}년</h3>
             <div class="progress-wrapper">
-                <!-- <div class="progress" role="progressbar" aria-label="Example with label" :aria-valuenow="progressbarCalc" aria-valuemin="0" aria-valuemax="100" style="width: 900px; height: 30px;">
-                    <div class="progress-bar" :style="{ width: progressbarCalc + '%' }">{{ progressbarCalc }}%</div>
-                </div> -->
                 <b-progress :max=100 :style="progressContainerStyle">
                     <b-progress-bar 
                     :value="progressbarCalc" 
@@ -15,8 +12,8 @@
                 </b-progress>
             </div>
             <div class="remaining-days">
-                <p>새해가 시작하고 {{ passDate }} 일이 지났습니다.</p>
-                <p>앞으로 남은 {{ currentYear }}년<br> {{ DdayCalc }}일</p>
+                <p>새해가 시작하고 {{ passDate }}일이 지났습니다.</p>
+                <p>앞으로 남은 {{ currentYear }}년, {{ DdayCalc }}일</p>
             </div>
             <div>
 
@@ -28,18 +25,21 @@
 export default {
     data() {
         return {
+            //progressBar 내부 그래프 스타일
             progressBarStyle: {
                 backgroundColor: '#2478FF',
-                height: '50px',
+                height: '45px',
                 borderRadius: '10px',
                 marginTop: '0px',
                 overflow: 'hidden',
-                border: '1px solid #ccc'
+                border: '0px solid #ccc'
             },
+            //progressBar 외부 배경 스타일
             progressContainerStyle: {
-                height: '50px',
+                height: '45px',
                 width: '800px',
                 marginBottom: '0px',
+                backgroundColor: '#E4E4E4',
             },
             
         }
@@ -91,27 +91,31 @@ export default {
 .progress-container h3 {
     font-weight: 600;
     color: black;
+    margin-top: 30px; 
+    margin-left: -260px; 
+    font-weight: 550;
+    font-size: 24px;
 }
 
 .progress-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .progress-bar {
     background-color: #2478FF; /* progress color */
     height: 20px;
     border-radius: 10px;
-    /* margin-top: 30px; */
     overflow: hidden;
     border: 1px solid #000; /* Border around the progress bar */
 }
 
 .remaining-days {
-    margin-top: 50px;
+    margin-top: 20px;
     font-weight: 500;
+    font-size: 15px;
     color: black;
 }
 

@@ -32,6 +32,17 @@
       "time": "22:59",
       "date": null,
       "dates": null
+    },
+    {
+      "id": "985c",
+      "icon": "📚",
+      "subject": "책읽기",
+      "text": "책읽기",
+      "rule": "매일",
+      "day": [],
+      "time": "11:48",
+      "date": null,
+      "dates": null
     }
   ]
 }
