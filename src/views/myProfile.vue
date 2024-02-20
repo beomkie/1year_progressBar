@@ -21,9 +21,13 @@ export default {
     data() {
         return {
             user: {
-            nickname: 'beomkie', // 사용자의 닉네임
-            email: 'gb3205@gorgeouswrks.com' // 사용자의 이메일
-            //정보 추가 가능
+                nickname: 'beomkie', // 사용자의 닉네임
+                email: 'gb3205@gorgeouswrks.com', // 사용자의 이메일
+                name: '이기범', //사용자 이름
+                profileMessage: 'empty', //자기소개 
+                profileImageURL: 'https://example.com/profile_image.jpg', // 프로필 이미지의 URL
+                instaId: 'beomkie',
+                
             },
         }
     },

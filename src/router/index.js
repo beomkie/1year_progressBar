@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/homeView.vue'
 import myProfile from '@/views/myProfile.vue'
-import myGoal from '@/views/myGoal'
+import myArchievement from '@/views/myArchievement'
 import addCard from '@/views/addCard'
 import socialView from '@/views/socialView'
 import cardDetail from '@/views/cardDetail'
@@ -21,9 +21,9 @@ const routes = [
   component: myProfile 
 },
 { 
-  path: '/mygoal', 
-  name: 'myGoal',
-  component: myGoal 
+  path: '/myArchievement', 
+  name: 'myArchievement',
+  component: myArchievement 
 },
 { 
   path: '/addcard', 

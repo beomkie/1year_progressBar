@@ -30,8 +30,8 @@ headerSet.vue => 헤더 컴포넌트
 yearCounter.vue => 한 해 퍼센트 계산기 progress Bar 컴포넌트
 
 ### Views File exp
-yearProgress.vue => 홈화면
+homeView.vue => 홈화면
 myProfile.vue => 유저 프로필 화면
-myGoal.vue => 목표(계획) 카드 화면
+myArchievement.vue => 성취 및 뱃지 화면
 addCard.vue => 카드(목표) 추가 화면
 

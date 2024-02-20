@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header title="Social" />
+        <Header title="소셜" />
     </div>  
 </template>
 
