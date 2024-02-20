@@ -1,6 +1,10 @@
 <template>
     <div class="progress-container">
             <h3>{{ currentYear }}년</h3>
+            <div class="remaining-days">
+                <p>새해가 시작하고 {{ passDate }}일이 지났습니다.</p>
+                <p>앞으로 남은 {{ currentYear }}년, {{ DdayCalc }}일</p>
+            </div>
             <div class="progress-wrapper">
                 <b-progress :max=100 :style="progressContainerStyle">
                     <b-progress-bar 
@@ -10,13 +14,6 @@
                     >
                 </b-progress-bar>
                 </b-progress>
-            </div>
-            <div class="remaining-days">
-                <p>새해가 시작하고 {{ passDate }}일이 지났습니다.</p>
-                <p>앞으로 남은 {{ currentYear }}년, {{ DdayCalc }}일</p>
-            </div>
-            <div>
-
             </div>
         </div>
 </template>

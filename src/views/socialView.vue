@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header title="Feed" />
+        <Header title="Social" />
     </div>  
 </template>
 

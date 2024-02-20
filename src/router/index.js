@@ -4,7 +4,7 @@ import Home from '@/views/homeView.vue'
 import myProfile from '@/views/myProfile.vue'
 import myGoal from '@/views/myGoal'
 import addCard from '@/views/addCard'
-import feedView from '@/views/FeedView'
+import socialView from '@/views/socialView'
 import cardDetail from '@/views/cardDetail'
 
 
@@ -31,9 +31,9 @@ const routes = [
   component: addCard 
 },
 { 
-  path: '/feedView', 
-  name: 'feedView',
-  component: feedView 
+  path: '/socialView', 
+  name: 'socialView',
+  component: socialView 
 },
 { 
   path: '/cardDetail/:id', 
