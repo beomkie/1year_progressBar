@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-          <HeaderBack title="추가하기" />
+          <HeaderBack title="목표 추가하기" />
         </div>
         <div>
           <goalSet />

@@ -4,8 +4,37 @@
             <Header title="My"/>
         </div>
         <div class="user-data">
-            <h1 style="font-weight: 600;">{{ user.nickname }}</h1>
-            <p style="font-size: 13px;">{{ user.email }}</p>
+            <img src="@/assets/Ellipse 1.png" alt="프로필 이미지">
+            <div>
+                <h1 style="
+                    font-weight: 600; 
+                    font-size: 23px;
+                    margin-left: 10px;
+                    margin-top: 15px;
+                ">
+                {{ user.nickname }}
+            </h1>
+                <p style="
+                    font-size: 13px;
+                    margin-left: 10px;
+                ">{{ user.email }}
+                </p>
+            </div>
+        </div>
+        <div class="profile-data">
+            <p>(프로필 메시지)</p>
+            <p>(인스타그램 주소)</p>
+        </div>
+        <div class="menu-style">
+            <hr>
+            <p>내 프로필 바로가기</p>
+            <hr>
+            <p>결제 설정</p>
+            <hr>
+            <p>알림설정</p>
+            <hr>
+            <p>이용약관</p>
+            <hr>
         </div>
         
     </div>
@@ -31,15 +60,6 @@ export default {
             },
         }
     },
-    computed: {
-        currentYear() {
-            const currentDate = new Date();
-            const currentYear = currentDate.getFullYear();
-
-            return currentYear;
-        },
-
-    },
 
 }
 
@@ -49,16 +69,24 @@ export default {
 <style scoped>
 .user-data {
     font-weight: 600;
+    display: flex;
+    align-items: center;
     text-align: left;
     margin-left: 30px;
-    margin-top: 50px;
+    margin-top: 30px;
     color: black;
 }
-
-.goal-rate {
-    text-align: left;
+.profile-data {
+    margin-top: 20px;
     margin-left: 30px;
-    margin-top: 50px;
-    color: black;
+    text-align: left;
+    font-size: 13px;
+}
+.menu-style {
+    margin-top: 30px;
+}
+.menu-style p {
+    text-align: left;
+    margin-left: 25px;
 }
 </style>

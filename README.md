@@ -34,4 +34,5 @@ homeView.vue => 홈화면
 myProfile.vue => 유저 프로필 화면
 myArchievement.vue => 성취 및 뱃지 화면
 addCard.vue => 카드(목표) 추가 화면
+socialView.vue => 소셜 페이지 화면
 

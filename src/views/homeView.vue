@@ -7,7 +7,6 @@
             <yearcount />            
         </div>
         <div class="system-font">
-            <hr>
             <p>{{ currentYear }}년 나의 목표</p>
         </div>
         <div>
@@ -24,7 +23,7 @@
 <script>
 import Header from '@/components/headerSet.vue';
 import yearcount from '@/components/yearCounter.vue';
-import card from '@/components/cardUpdate.vue';
+import card from '@/components/cardComp.vue';
 import axios from 'axios';
 
 export default {

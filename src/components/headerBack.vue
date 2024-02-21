@@ -28,7 +28,7 @@ export default {
   text-align: left;
   margin-left: 25px;
   margin-top: 120px;
-  font-size: 35px;
+  font-size: 30px;
   color: black;
 }
 .back-button {
