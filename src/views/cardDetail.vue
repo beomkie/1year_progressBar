@@ -28,10 +28,10 @@ export default {
       text: '',
     });
 
-    const id = card.id;
-
     const CardDataFromServer = async () => {
       try {
+        // $route를 사용하기 위해 this.$route 사용
+        const id = this.$route.params.id;
         const response = await axios.get(`http://localhost:3000/card/${id}`);
         card.value = response.data;
       } catch (error) {
@@ -43,16 +43,16 @@ export default {
       CardDataFromServer();
     });
 
+    const goBack = () => {
+      window.history.back();
+    }
+
     return {
       card,
+      goBack,
     };
   },
-  methods: {
-    goBack() {
-      window.history.back();
-    },
-  }
-}
+};
 </script>
 
 <style scoped>
