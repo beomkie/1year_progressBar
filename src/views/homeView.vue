@@ -52,8 +52,7 @@ export default {
           const response = await axios.get('http://localhost:3000/card');
           // 가져온 데이터를 카드 배열에 저장
           this.cards = response.data;
-          console.log(this.cards);
-
+          
         } catch (error) {
           console.error('Error fetching data:', error);
         }

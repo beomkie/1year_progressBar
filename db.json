@@ -12,37 +12,26 @@
       "dates": null
     },
     {
-      "id": "c784",
-      "icon": "📚",
-      "subject": "돈 벌자",
-      "text": "돈벌자",
-      "rule": "매일",
-      "day": [],
-      "time": "12:59",
-      "date": null,
-      "dates": null
-    },
-    {
-      "id": "cee5",
+      "id": "e865",
       "icon": "💵",
-      "subject": "돈돈돈",
-      "text": "돈돈돈돈",
+      "subject": "열심히 하자",
+      "text": "열심히 하자 제발",
       "rule": "매일",
-      "day": [],
-      "time": "22:59",
-      "date": null,
-      "dates": null
+      "days": [],
+      "time": "08:30",
+      "dates": null,
+      "timeRange": null
     },
     {
-      "id": "985c",
-      "icon": "📚",
-      "subject": "책읽기",
-      "text": "책읽기",
+      "id": "ea00",
+      "icon": "🏃",
+      "subject": "열심히 달려야 한다.",
+      "text": "열심히 달려보자구나",
       "rule": "매일",
-      "day": [],
-      "time": "11:48",
-      "date": null,
-      "dates": null
+      "days": [],
+      "time": "07:59",
+      "dates": null,
+      "timeRange": null
     }
   ]
 }

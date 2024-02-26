@@ -1,59 +1,84 @@
 <template>
   <div>
     <header>
-      <img src="@/assets/arrow.png" alt="뒤로가기" @click="goBack" class="back-button">
-      <titleblock :title="card.subject" />
+      <headerBack :title="card ? card.subject : '제목이 비었습니다.'"/>      
     </header>
     <div>
-      <p>ID: {{ card.id }}</p>
-      <p>Subject: {{ card.subject }}</p>
-      <p>Text: {{ card.text }}</p>
+      <b-nav pills class="navStyle">
+        <b-nav-item :active="selectedTab === 'info'" @click="selectTab('goalinfo')">목표정보</b-nav-item>
+        <b-nav-item :active="selectedTab === 'review'" @click="selectTab('reflection')">회고</b-nav-item>
+      </b-nav>
+    </div>
+    <div>
+      <router-view />
+    </div>
+    
+    <!-- DataBase Test -->
+    <div class="container mt-4">
+      <b-card>
+        <div>
+          <h1>#Database Test</h1>
+          <p>ID: {{ card.id }}</p>
+          <p>Text: {{ card.text }}</p>
+          <p>Icon: {{ card.icon }}</p>
+          <p>Rule: {{ card.rule }}</p>
+          <template v-if="card.rule === '매주'">
+            <p>Days: {{ card.days.join(', ') }}</p>
+            <p>Time: {{ card.time }}</p>
+          </template>
+          <template v-else-if="card.rule === '매일'">
+            <p>Time: {{ card.time }}</p>
+          </template>
+          <template v-else-if="card.rule === '매월'">
+            <p>Dates: {{ card.dates.join(', ') }}</p>
+            <p>Time Range: {{ card.timeRange }}</p>
+          </template>
+        </div>
+      </b-card>
     </div>
   </div>
 </template>
 
 <script>
-import titleblock from '@/components/titleBlock.vue';
+import headerBack from '@/components/headerBack.vue';
 import axios from 'axios';
-import { ref, onMounted } from 'vue';
 
 export default {
   components: {
-    titleblock,
+    headerBack,
   },
-  setup() {
-    const card = ref({
-      id: null,
-      subject: '',
-      text: '',
-    });
-
-    const CardDataFromServer = async () => {
-      try {
-        // $route를 사용하기 위해 this.$route 사용
-        const id = this.$route.params.id;
-        const response = await axios.get(`http://localhost:3000/card/${id}`);
-        card.value = response.data;
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-
-    onMounted(() => {
-      CardDataFromServer();
-    });
-
-    const goBack = () => {
-      window.history.back();
-    }
-
+  data() {
     return {
-      card,
-      goBack,
+      card: null,
+      selectedTab: 'info',
     };
+  },
+  mounted() {
+    this.fetchCardData();
+  },
+  methods: {
+    async fetchCardData() {
+      const cardId = this.$route.params.id;
+      try {
+        const response = await axios.get(`http://localhost:3000/card/${cardId}`);
+        this.card = response.data;
+      } catch (error) {
+        console.error('Error fetching card data:', error);
+      }
+    },
+    selectTab(tab) {
+      this.selectedTab = tab;
+      // 해당 탭에 맞는 라우트로 이동
+      this.$router.push({ name: tab, params: { id: this.$route.params.id } });
+    },
   },
 };
 </script>
 
 <style scoped>
+.navStyle {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
 </style>

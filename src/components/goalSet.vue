@@ -1,52 +1,54 @@
 <template>
-  <div>
-    <!-- 폼 -->
-    <b-form @submit.prevent="submitForm" @reset="onReset" v-if="show" class="subject-style">
-      <!-- 아이콘 선택 -->
-      <b-form-group id="input-group-3" label="아이콘 선택하기:" class="icon-select-style">
-        <b-form-select v-model="form.icon" :options="icon" required></b-form-select>
-      </b-form-group>
-      <!-- 목표 제목 입력 -->
-      <b-form-group id="input-group-1" label="목표 제목 설정하기:" label-for="input-1" description="올해 이루고자 하는 목표의 제목을 설정해보세요." class="label-style">
-        <b-form-input id="input-1" v-model="form.subject" type="string" placeholder="목표 제목을 설정하세요." required></b-form-input>
-      </b-form-group>
-      <!-- 목표 내용 입력 -->
-      <b-form-group id="input-group-2" label="도달하고자 하는 목표를 구체화해보세요:" label-for="input-2" class="label-style">
-        <b-form-textarea id="input-2" v-model="form.text" placeholder="도달하고자 하는 목표를 구체적으로 작성해보세요." rows="3" max-rows="100" required></b-form-textarea>
-      </b-form-group>
-      <!-- 규칙 선택 -->
-      <b-form-group id="input-group-4" label="규칙 설정하기:" class="label-style">
-        <b-form-select v-model="form.rule" :options="rules" required></b-form-select>
-      </b-form-group>
-      <!-- 규칙에 따른 추가 입력 필드 -->
-      <template v-if="form.rule === '매주'">
-        <b-form-group id="input-group-5" label="요일 선택하기:" class="label-style">
-          <b-form-select v-model="form.days" :options="days" required multiple></b-form-select>
-          <b-form-input v-model="form.time" type="time" required></b-form-input>
+  <div class="container mt-4">
+    <b-card class="cardStyle">
+      <b-form @submit.prevent="submitForm" @reset="onReset">
+        <b-form-group label="아이콘 선택하기" label-for="icon" class="mb-5">
+          <b-form-select v-model="form.icon" :options="iconOptions" id="icon" class="form-control"></b-form-select>
         </b-form-group>
-      </template>
-      <template v-else-if="form.rule === '매일'">
-        <b-form-group id="input-group-6" label="시간 선택하기:" class="label-style">
-          <b-form-input v-model="form.time" type="time" required></b-form-input>
+        
+        <b-form-group label="목표 제목 설정하기" label-for="subject" class="mb-5">
+          <b-form-input v-model="form.subject" id="subject" placeholder="목표 제목을 입력하세요." class="form-control"></b-form-input>
         </b-form-group>
-      </template>
-      <template v-else-if="form.rule === '매월'">
-        <b-form-group id="input-group-7" label="날짜 선택하기:" class="label-style">
-          <b-form-select v-model="form.dates" :options="dates" required></b-form-select>
-          <b-form-select v-model="form.timeRange" :options="timeRange" required></b-form-select>
+        
+        <b-form-group label="도달하고자 하는 목표를 구체화해보세요" label-for="text" class="mb-5">
+          <b-form-textarea v-model="form.text" id="text" placeholder="도달하고자 하는 목표를 구체적으로 작성해보세요." rows="3" max-rows="6" class="form-control"></b-form-textarea>
         </b-form-group>
-      </template>
-      <!-- 제출 버튼 -->
-      <b-button 
-        type="submit" 
-        variant="primary" 
-        style="margin:20px;"
-        >
-        목표 세우기
-      </b-button>
-    </b-form>
+        
+        <b-form-group label="규칙 설정하기" label-for="rule" class="mb-5">
+          <b-form-select v-model="form.rule" :options="rules" id="rule" class="form-control"></b-form-select>
+        </b-form-group>
+        
+        <template v-if="form.rule === '매주'">
+          <b-form-group label="요일 선택하기:" label-for="days" class="mb-3">
+            <b-form-select v-model="form.days" :options="daysOptions" id="days" class="form-control" multiple></b-form-select>
+          </b-form-group>
+          <b-form-group label="시간 선택하기:" label-for="time" class="mb-3">
+            <b-form-input v-model="form.time" type="time" id="time" class="form-control"></b-form-input>
+          </b-form-group>
+        </template>
+        
+        <template v-else-if="form.rule === '매일'">
+          <b-form-group label="시간 선택하기:" label-for="time" class="mb-3">
+            <b-form-input v-model="form.time" type="time" id="time" class="form-control"></b-form-input>
+          </b-form-group>
+        </template>
+        
+        <template v-else-if="form.rule === '매월'">
+          <b-form-group label="날짜 선택하기:" label-for="dates" class="mb-3">
+            <b-form-select v-model="form.dates" :options="datesOptions" id="dates" class="form-control"></b-form-select>
+          </b-form-group>
+          <b-form-group label="시간 선택하기:" label-for="timeRange" class="mb-3">
+            <b-form-select v-model="form.timeRange" :options="timeRange" id="timeRange" class="form-control"></b-form-select>
+          </b-form-group>
+        </template>
+        
+        <b-button type="submit" variant="primary" class="w-100 mb-3">목표 세우기</b-button>
+        <b-button type="reset" variant="outline-secondary" class="w-100">초기화</b-button>
+      </b-form>
+    </b-card>
+    
     <!-- 결과 카드 바인딩 테스트용 -->
-    <b-card class="mt-3" header="Form Data Result">
+    <b-card class="mt-3" header="Data Binding Test">
       <pre class="m-0">{{ form }}</pre>
     </b-card>
   </div>
@@ -62,65 +64,72 @@ export default {
         icon: null,
         subject: '',
         text: '',
-        rule: null, // 규칙 선택
-        day: [], // 요일 선택
-        time: null, // 시간 선택
-        date: null, // 날짜 선택
-        dates: null, // 날짜만 선택할 때
+        rule: null,
+        days: [],
+        time: null,
+        dates: null,
+        timeRange: null,
       },
-      icon: [{ text: '아이콘 선택하기', value: null }, '🏃', '📚', '💵', '🏠'],
-      rules: ['매주', '매일', '매월'], // 새로운 폼 필드: 규칙 선택 옵션
-      days: ['월', '화', '수', '목', '금요일', '토요일', '일요일'], // 새로운 폼 필드: 요일 선택 옵션
-      show: true,
+      iconOptions: [
+        { text: '아이콘 선택하기', value: null },
+        { text: '🏃', value: '🏃' },
+        { text: '📚', value: '📚' },
+        { text: '💵', value: '💵' },
+        { text: '🏠', value: '🏠' },
+      ],
+      rules: ['매주', '매일', '매월'],
+      daysOptions: ['월', '화', '수', '목', '금요일', '토요일', '일요일'],
+      datesOptions: Array.from({ length: 31 }, (_, i) => i + 1),
       timeRange: ['오전', '오후'],
-      dates: Array.from({ length: 31 }, (_, i) => i + 1),      
     };
-  }, 
+  },
   methods: {
     async submitForm() {
       try {
         const res = await axios.post('http://localhost:3000/card', this.form);
         console.log('Data saved:', res.data);
         this.$emit('formSubmitted', this.form);
-        this.$router.push('/mygoal');
+        this.$router.push('/');
       } catch (error) {
         console.error('Error saving data:', error);
       }
     },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.subject = '';
-      this.form.text = '';
-      this.form.icon = null;
-      this.form.rule = null;
-      this.form.day = null;
-      this.form.time = null;
-      this.form.date = null;
-      this.form.timeRange = null;
-      this.form.dates = null;
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+    onReset() {
+      this.form = {
+        icon: null,
+        subject: '',
+        text: '',
+        rule: null,
+        days: [],
+        time: null,
+        dates: null,
+        timeRange: null,
+      };
     },
   },
 };
 </script>
 
-<style>
-.subject-style {
-  margin-top: 40px;
+<style scoped>
+.container {
+  padding: 20px;
 }
-.label-style {
-  font-weight: 600;
-  text-align: left;
-  margin: 15px;
-  margin-bottom: 30px;
+
+.mb-3 {
+  margin-bottom: 1.5rem;
 }
-.icon-select-style {
-  text-align: left;
-  margin-left: 15px;
-  font-weight: 600;
+.cardStyle {
+  border: 0px;
+}
+/* 모바일에서 폼 너비를 조정 */
+@media (max-width: 576px) {
+  .form-control {
+    width: 100%;
+  }
+}
+
+/* 버튼 너비를 조정하여 가로 폭 꽉 차게 */
+.b-button {
+  width: 100%;
 }
 </style>

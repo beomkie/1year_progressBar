@@ -6,7 +6,8 @@ import myArchievement from '@/views/myArchievement'
 import addCard from '@/views/addCard'
 import socialView from '@/views/socialView'
 import cardDetail from '@/views/cardDetail'
-
+import goalinfo from '@/views/goalInfo'
+import reflection from '@/views/reflectionWrite.vue'
 
 Vue.use(VueRouter)
 
@@ -38,7 +39,19 @@ const routes = [
 { 
   path: '/cardDetail/:id', 
   name: 'cardDetail',
-  component: cardDetail 
+  component: cardDetail,
+  children: [
+    {
+      path: '/goalinfo',
+      name: 'goalinfo',
+      component: goalinfo
+    },
+    {
+      path: '/reflection',
+      name: 'reflection',
+      component: reflection
+    }
+  ]
 },
 
 
