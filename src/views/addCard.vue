@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-          <HeaderBack title="목표 추가하기" />
+          <headerBack title="목표 추가하기" :backRoute="'Home'" />
         </div>
         <div>
           <goalSet />
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import HeaderBack from '@/components/headerBack.vue';
+import headerBack from '@/components/headerBack.vue';
 import goalSet from '@/components/goalSet.vue';
 
 export default {
   components: {
-    HeaderBack,
+    headerBack,
     goalSet,
   },
   

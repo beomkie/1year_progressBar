@@ -8,24 +8,24 @@
     <div class="container mt-4">
       <b-card>
         <h3>목표 디테일</h3>
-        <p>{{ card.text }}</p>
+        <p>{{ card && card.text ? card.text : '목표가 없습니다.' }}</p>
       </b-card>
     </div>
     <div class="container mt-4">
       <b-card>
         <h3>설정된 규칙</h3>
-        <p>{{ card.rule }}</p>
-        <template v-if="card.rule === '매주'">
-            <p>Days: {{ card.days.join(', ') }}</p>
-            <p>Time: {{ card.time }}</p>
-          </template>
-          <template v-else-if="card.rule === '매일'">
-            <p>Time: {{ card.time }}</p>
-          </template>
-          <template v-else-if="card.rule === '매월'">
-            <p>Dates: {{ card.dates.join(', ') }}</p>
-            <p>Time Range: {{ card.timeRange }}</p>
-          </template>
+        <p>{{ card && card.rule ? card.rule : '규칙이 설정되지 않았습니다.' }}</p>
+        <template v-if="card && card.rule === '매주'">
+          <p>Days: {{ card.days && card.days.length > 0 ? card.days.join(', ') : '매주 수행할 날짜가 없습니다.' }}</p>
+          <p>Time: {{ card.time ? card.time : '시간이 설정되지 않았습니다.' }}</p>
+        </template>
+        <template v-else-if="card && card.rule === '매일'">
+          <p>Time: {{ card.time ? card.time : '시간이 설정되지 않았습니다.' }}</p>
+        </template>
+        <template v-else-if="card && card.rule === '매월'">
+          <p>Dates: {{ card.dates && card.dates.length > 0 ? card.dates.join(', ') : '매월 수행할 날짜가 없습니다.' }}</p>
+          <p>Time Range: {{ card.timeRange ? card.timeRange : '시간 범위가 설정되지 않았습니다.' }}</p>
+        </template>
       </b-card>
     </div>
   </div>
@@ -35,7 +35,7 @@
 import axios from 'axios';
 
 export default {
-    data() {
+  data() {
     return {
       card: null,
     };
@@ -54,7 +54,7 @@ export default {
       }
     },
   },
-}
+};
 </script>
 
 <style>

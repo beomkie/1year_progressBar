@@ -36,18 +36,19 @@ const routes = [
   name: 'socialView',
   component: socialView 
 },
-{ 
+{
   path: '/cardDetail/:id', 
   name: 'cardDetail',
   component: cardDetail,
+  redirect: '/cardDetail/:id/goalinfo', // 부모 컴포넌트 진입 시 기본적으로 goalinfo로 리다이렉트
   children: [
     {
-      path: '/goalinfo',
+      path: 'goalinfo',
       name: 'goalinfo',
       component: goalinfo
     },
     {
-      path: '/reflection',
+      path: 'reflection',
       name: 'reflection',
       component: reflection
     }

@@ -1,37 +1,39 @@
 {
   "card": [
     {
-      "id": "7573",
-      "icon": "💵",
-      "subject": "돈을 많이 벌자",
-      "text": "돈을 벌자 행복하게 살아보자",
-      "rule": "매일",
-      "day": [],
-      "time": "12:59",
-      "date": null,
-      "dates": null
-    },
-    {
-      "id": "e865",
-      "icon": "💵",
-      "subject": "열심히 하자",
-      "text": "열심히 하자 제발",
-      "rule": "매일",
-      "days": [],
-      "time": "08:30",
-      "dates": null,
-      "timeRange": null
-    },
-    {
-      "id": "ea00",
+      "id": "f778",
       "icon": "🏃",
-      "subject": "열심히 달려야 한다.",
-      "text": "열심히 달려보자구나",
-      "rule": "매일",
-      "days": [],
-      "time": "07:59",
+      "subject": "매주",
+      "text": "매주",
+      "rule": "매주",
+      "days": [
+        "월요일"
+      ],
+      "time": "12:59",
       "dates": null,
       "timeRange": null
+    },
+    {
+      "id": "4c11",
+      "icon": "📚",
+      "subject": "매일",
+      "text": "매일",
+      "rule": "매일",
+      "days": [],
+      "time": "10:56",
+      "dates": null,
+      "timeRange": null
+    },
+    {
+      "id": "f372",
+      "icon": "💵",
+      "subject": "매월",
+      "text": "매월",
+      "rule": "매월",
+      "days": [],
+      "time": null,
+      "dates": 10,
+      "timeRange": "오후"
     }
   ]
 }

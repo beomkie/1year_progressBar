@@ -37,6 +37,7 @@ export default {
                 width: '800px',
                 marginBottom: '0px',
                 backgroundColor: '#E4E4E4',
+                border: '0px solid #ccc',
             },
             
         }
