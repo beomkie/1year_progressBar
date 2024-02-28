@@ -3,11 +3,12 @@ import VueRouter from 'vue-router'
 import Home from '@/views/homeView.vue'
 import myProfile from '@/views/myProfile.vue'
 import myArchievement from '@/views/myArchievement'
-import addCard from '@/views/addCard'
+import addCard from '@/views/addCardView/addCard'
 import socialView from '@/views/socialView'
-import cardDetail from '@/views/cardDetail'
-import goalinfo from '@/views/goalInfo'
-import reflection from '@/views/reflectionWrite.vue'
+import cardDetail from '@/views/cardDetailView/cardDetail'
+import goalinfo from '@/views/cardDetailView/goalInfo'
+import reflection from '@/views/cardDetailView/reflectionWrite.vue'
+import subjectInput from '@/views/addCardView/subjectInput.vue'
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,11 @@ const routes = [
       component: reflection
     }
   ]
+},
+{ 
+  path: '/subjectInput', 
+  name: 'subjectInput',
+  component: subjectInput 
 },
 
 

@@ -1,39 +1,15 @@
 {
   "card": [
     {
-      "id": "f778",
+      "id": "f9fa",
       "icon": "🏃",
-      "subject": "매주",
-      "text": "매주",
-      "rule": "매주",
-      "days": [
-        "월요일"
-      ],
-      "time": "12:59",
-      "dates": null,
-      "timeRange": null
-    },
-    {
-      "id": "4c11",
-      "icon": "📚",
-      "subject": "매일",
-      "text": "매일",
+      "subject": "매일 달리기",
+      "text": "매일 15분 이상 달려서 몸무게 60kg까지 감량하자.",
       "rule": "매일",
       "days": [],
-      "time": "10:56",
+      "time": "19:04",
       "dates": null,
       "timeRange": null
-    },
-    {
-      "id": "f372",
-      "icon": "💵",
-      "subject": "매월",
-      "text": "매월",
-      "rule": "매월",
-      "days": [],
-      "time": null,
-      "dates": 10,
-      "timeRange": "오후"
     }
   ]
 }

@@ -6,7 +6,8 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ card.subject }}</h5>
-        <p class="card-text">{{ card.description }}</p>
+        <p class="card-text">{{ card.rule }}</p>
+        <p>(Prgress Bar Area)</p>
         <router-link :to="'/cardDetail/' + card.id" class="btn btn-primary button-style">자세히 보기</router-link>
       </div>
     </div>
@@ -60,6 +61,8 @@ export default {
 
 .card-text {
   color: #666;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .button-style {

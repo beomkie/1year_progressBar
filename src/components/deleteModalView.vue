@@ -25,7 +25,7 @@ export default {
       this.$emit('close');
     },
     confirmDelete() {
-      this.$emit('confirm');
+      this.$emit('delete');
     },
   },
 };

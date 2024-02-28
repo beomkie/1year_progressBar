@@ -105,7 +105,7 @@ export default {
         await axios.delete(`http://localhost:3000/card/${cardId}`);
         console.log('Card deleted successfully.');
         // 삭제 후 홈 화면으로 이동
-        this.$router.push('/Home');
+        this.$router.push('/');
       } catch (error) {
         console.error('Error deleting card:', error);
       }
