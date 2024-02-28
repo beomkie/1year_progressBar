@@ -1,7 +1,6 @@
 # 1y_progress
 
 ## Notice for computer Share
-Framework7 설치하기 - 디자인변경ㄱ
 
 ## Project setup
 ```
