@@ -9,6 +9,7 @@ import cardDetail from '@/views/cardDetailView/cardDetail'
 import goalinfo from '@/views/cardDetailView/goalInfo'
 import reflection from '@/views/cardDetailView/reflectionWrite.vue'
 import subjectInput from '@/views/addCardView/subjectInput.vue'
+import iconSelection from '@/views/addCardView/iconSelection.vue'
 
 Vue.use(VueRouter)
 
@@ -30,7 +31,22 @@ const routes = [
 { 
   path: '/addcard', 
   name: 'addCard',
-  component: addCard 
+  component: addCard,
+  redirect: '/addCard/iconSelection',
+  children: [
+    {
+      path: 'iconSelection',
+      name: 'iconSelection',
+      component: iconSelection
+    },
+    {
+      
+      path: 'subjectInput', 
+      name: 'subjectInput',
+      component: subjectInput 
+    
+    }
+  ]
 },
 { 
   path: '/socialView', 
@@ -54,11 +70,6 @@ const routes = [
       component: reflection
     }
   ]
-},
-{ 
-  path: '/subjectInput', 
-  name: 'subjectInput',
-  component: subjectInput 
 },
 
 

@@ -1,64 +1,33 @@
 <template>
+  <div>
     <div>
-        <div>
-          <headerBack title="목표 추가하기" :backRoute="'Home'" />
-        </div>
-        <div>
-          <IconSelection v-if="currentStep === 1" @nextStep="nextStep"  />
-          <SubjectSetting v-if="currentStep === 2" @nextStep="nextStep" @previousStep="previousStep" />
-          <TextSetting v-if="currentStep === 3" @nextStep="nextStep" @previousStep="previousStep" />
-          <RuleSetting v-if="currentStep === 4" @submitForm="submitForm" @previousStep="previousStep"  />
-        </div>
+      <headerBack title="목표 추가하기" :backRoute="'Home'" @back="goBack" />
     </div>
+    <div>
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
 import headerBack from '@/components/headerBack.vue';
-import IconSelection from '@/views/addCardView/iconSelection.vue';
-import SubjectSetting from '@/views/addCardView/subjectInput.vue';
+import { mapActions } from 'vuex';
 
 export default {
   components: {
     headerBack,
-    // goalSet,
-    IconSelection,
-    SubjectSetting,
-  },
-  data() {
-    return {
-      currentStep: 1,
-      formData: {
-        // 각 섹션에서의 입력 데이터
-        icon: null,
-        subject: '',
-        text: '',
-        rule: null,
-        days: [],
-        time: null,
-        dates: null,
-        timeRange: null,
-      },
-    };
   },
   methods: {
-    nextStep(number) {
-      this.currentStep == number
-      console.log('did it!!! ^_^')
-    },
-    previousStep() {
-      this.currentStep--;
-      if (this.currentStep === 1) {
-        this.resetFormData(); // 뒤로가기를 누르면 데이터 초기화
-      }
-    },
-    submitForm() {
-      // 폼 제출 처리
+    ...mapActions(['resetFormData']), // resetFormData 액션을 사용하기 위해 Vuex mapActions 사용
+
+    goBack() {
+      // Home으로 돌아갈 때 모든 데이터 초기화를 위해 resetFormData 액션 실행
+      this.resetFormData();
     },
   },
-  
 };
 </script>
 
 <style scoped>
-
+/* 필요한 스타일링 추가 */
 </style>

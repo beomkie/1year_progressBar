@@ -17,13 +17,14 @@ export default new Vuex.Store({
       dates: null,
       timeRange: null,
     },
+    currentStep: 1, // 초기값은 1로 설정
   },
   mutations: {
     updateFormData(state, payload) {
       state.formData = { ...state.formData, ...payload };
     },
-    updateSubjectData(state,payload) {
-      state.formData = { ...state.formData, ...payload};
+    updateSubjectData(state, payload) {
+      state.formData = { ...state.formData, ...payload };
     },
     resetFormData(state) {
       state.formData = {
@@ -39,10 +40,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    updateIconAndNavigate({ commit }, { icon }) {
+    updateIconAndNavigate({ commit }, { icon, router }) {
       commit('updateFormData', { icon });
       // Navigate to the next step
-      // router.push('/subjectinput');
+      router.push('subjectinput');
     },
     updateSubjectAndNavigate({ commit }, { subject, router }) {
       commit('updateFormData', { subject });
@@ -52,14 +53,11 @@ export default new Vuex.Store({
     goToPreviousStep({ commit }) {
       // Reset subject and navigate to previous step
       commit('updateFormData', { subject: '' });
-      // In a real app, you would navigate to the previous step here
-      // For demonstration purposes, let's log a message
+      // Decrement currentStep
       console.log('Going to previous step');
     },
-    goToPreviousAllreset({commit}) {
+    goToPreviousAllreset({ commit }) {
       commit('resetFormData');
-      console.log('Reset All');
-    }
+    },
   },
 });
-
