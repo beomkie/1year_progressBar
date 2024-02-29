@@ -2,6 +2,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+// import store from '@/store';
 
 Vue.use(Vuex);
 
@@ -17,13 +18,9 @@ export default new Vuex.Store({
       dates: null,
       timeRange: null,
     },
-    currentStep: 1, // 초기값은 1로 설정
   },
   mutations: {
     updateFormData(state, payload) {
-      state.formData = { ...state.formData, ...payload };
-    },
-    updateSubjectData(state, payload) {
       state.formData = { ...state.formData, ...payload };
     },
     resetFormData(state) {
@@ -41,23 +38,44 @@ export default new Vuex.Store({
   },
   actions: {
     updateIconAndNavigate({ commit }, { icon, router }) {
+      console.log('Updating icon:', icon); // 콘솔에 아이콘 값 확인
       commit('updateFormData', { icon });
       // Navigate to the next step
       router.push('subjectinput');
     },
+    
     updateSubjectAndNavigate({ commit }, { subject, router }) {
       commit('updateFormData', { subject });
       // Navigate to the next step
-      router.push('/next-step');
+      router.push('contents');
     },
-    goToPreviousStep({ commit }) {
-      // Reset subject and navigate to previous step
-      commit('updateFormData', { subject: '' });
-      // Decrement currentStep
+    updateContentsAndNavigate({ commit },{ text, router }) {
+      commit('updateFormData', { text });
+      router.push('#');
+    },
+    goToPreviousStep({ commit }, fieldsToReset) {
+      // 초기화할 필드를 가지고 있는 배열을 받아와서 필요한 데이터만 초기화
+      const resetData = {};
+  
+      // 받아온 필드 배열을 기반으로 데이터 초기화
+      fieldsToReset.forEach(field => {
+        resetData[field] = ''; // 필드 초기화
+      });
+  
+      // updateFormData 뮤테이션 호출하여 데이터 업데이트
+      commit('updateFormData', resetData);
       console.log('Going to previous step');
     },
     goToPreviousAllreset({ commit }) {
       commit('resetFormData');
     },
   },
+  getters: {
+    formData(state) {
+      return state.formData;
+    },
+  },
 });
+
+// 콘솔에 데이터 출력
+// console.log(store.getters.formData);

@@ -10,6 +10,7 @@ import goalinfo from '@/views/cardDetailView/goalInfo'
 import reflection from '@/views/cardDetailView/reflectionWrite.vue'
 import subjectInput from '@/views/addCardView/subjectInput.vue'
 import iconSelection from '@/views/addCardView/iconSelection.vue'
+import contentsInput from '@/views/addCardView/contentsInput.vue'
 
 Vue.use(VueRouter)
 
@@ -40,12 +41,15 @@ const routes = [
       component: iconSelection
     },
     {
-      
       path: 'subjectInput', 
       name: 'subjectInput',
       component: subjectInput 
-    
-    }
+    },
+    {
+      path: 'contents', 
+      name: 'contents',
+      component: contentsInput 
+    },
   ]
 },
 { 

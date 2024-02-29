@@ -47,12 +47,6 @@ export default {
       }
       this.$store.dispatch('updateIconAndNavigate', { icon, router: this.$router });
     },
-    // goToPrevious() {
-    //   // 이전으로 가기 버튼 클릭 시 goToPreviousAllreset 액션 실행
-    //   this.goToPreviousAllreset();
-    //   // 이전 페이지로 이동하는 코드
-    //   this.$router.go(-1); // 이전 페이지로 이동
-    // },
   },
 };
 </script>
