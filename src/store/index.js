@@ -2,7 +2,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import store from '@/store';
+import axios from 'axios'; // axios 추가
 
 Vue.use(Vuex);
 
@@ -37,41 +37,46 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    //Icon 전역 저장 및 라우터 푸시
     updateIconAndNavigate({ commit }, { icon, router }) {
-      console.log('Updating icon:', icon); // 콘솔에 아이콘 값 확인
+      console.log('Updating icon:', icon);
       commit('updateFormData', { icon });
-      // Navigate to the next step
       router.push('subjectinput');
     },
-    
+    //subjeect 전역 저장 및 라우터 푸시
     updateSubjectAndNavigate({ commit }, { subject, router }) {
       commit('updateFormData', { subject });
-      // Navigate to the next step
       router.push('contents');
     },
+    //콘텐츠(텍스트) 전역 저장 및 푸시
     updateContentsAndNavigate({ commit },{ text, router }) {
       commit('updateFormData', { text });
       router.push('ruleSet');
     },
+    //규칙(Rules) 전역 저장 및 푸시
     updpateRulesAndNavigate({ commit },{ rule, router }) {
       commit('updateFormData', { rule })
       router.push('#')
     },
-    updateRulesAndNavigate({ commit }, { form, router }) {
-      commit('updateFormData', form);
-      // 필요한 경우 다음 단계로 네비게이션
-      router.push('nextStepRoute');
+    async createGoalAction({ commit, state }) {
+      try {
+        const response = await axios.post('http://localhost:3000/card', state.formData);
+        console.log('Goal created:', response.data);
+        commit('resetFormData'); // 목표 생성 후 폼 초기화
+        console.log('Create Goal Success..!! ^_^')
+        return true; // 생성이 성공적으로 끝났음을 알려주는 값 반환
+      } catch (error) {
+        console.error('Error creating goal:', error);
+        return false; // 생성에 실패했음을 알려주는 값 반환
+      }
     },
     goToPreviousStep({ commit }, fieldsToReset) {
-      // 초기화할 필드를 가지고 있는 배열을 받아와서 필요한 데이터만 초기화
       const resetData = {};
   
-      // 받아온 필드 배열을 기반으로 데이터 초기화
       fieldsToReset.forEach(field => {
-        resetData[field] = ''; // 필드 초기화
+        resetData[field] = '';
       });
   
-      // updateFormData 뮤테이션 호출하여 데이터 업데이트
       commit('updateFormData', resetData);
       console.log('Going to previous step');
     },
@@ -85,6 +90,3 @@ export default new Vuex.Store({
     },
   },
 });
-
-// 콘솔에 데이터 출력
-// console.log(store.getters.formData);

@@ -1,6 +1,6 @@
 <template>
     <div class="container mt-4">
-      <b-form @submit.prevent="goToNextStep">
+      <b-form @submit.prevent="createGoal">
         <b-form-group label="규칙 설정하기" label-for="rule" class="mb-5">
           <b-form-select v-model="rule" :options="rules" id="rule" class="form-control"></b-form-select>
         </b-form-group>
@@ -50,6 +50,7 @@
         dates: null,
         timeRange: null,
         showSubjectError: false, // 제목 에러 표시 여부
+        creatingGoal: false, // 생성 중 여부를 나타내는 변수 추가
       };
     },
     computed: {
@@ -91,17 +92,32 @@
       },
     },
     methods: {
-      ...mapActions(['updateRulesAndNavigate', 'goToPreviousStep']),
-  
-      goToNextStep() {
-        const { rule, days, time, dates, timeRange } = this;
-  
-        const form = { rule, days, time, dates, timeRange };
-        this.$store.dispatch('updateRulesAndNavigate', { form, router: this.$router })
-            .then(() => {
-        console.log(this.$store.getters.formData); // 데이터 업데이트 후 콘솔에 출력
-        });
-      },
+      ...mapActions(['updateRulesAndNavigate', 'goToPreviousStep', 'createGoalAction']),
+
+        async createGoal() {
+
+            // 이미 생성 중이라면 함수를 빠져나감
+            if (this.creatingGoal) return;
+
+            // 생성 중 상태로 변경
+            this.creatingGoal = true;
+
+            try {
+                const created = await this.createGoalAction();
+                if (created) {
+                // 생성 성공
+                // 이후 필요한 동작 수행 (예: 다음 단계로 네비게이션)
+                this.$router.push('/');
+                } else {
+                    // 생성 실패
+                    console.log('Fail to create the Goal')
+                }
+
+            } finally {
+                // 생성 완료 후 상태 초기화
+                this.creatingGoal = false;
+            }            
+        },
       previousStep() {
         // 이전으로 가기 버튼 클릭 시 goToPreviousStep 액션 실행
         this.goToPreviousStep(['contents']); // 초기화할 필드 목록 전달
