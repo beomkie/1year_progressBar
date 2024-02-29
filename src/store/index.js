@@ -51,7 +51,16 @@ export default new Vuex.Store({
     },
     updateContentsAndNavigate({ commit },{ text, router }) {
       commit('updateFormData', { text });
-      router.push('#');
+      router.push('ruleSet');
+    },
+    updpateRulesAndNavigate({ commit },{ rule, router }) {
+      commit('updateFormData', { rule })
+      router.push('#')
+    },
+    updateRulesAndNavigate({ commit }, { form, router }) {
+      commit('updateFormData', form);
+      // 필요한 경우 다음 단계로 네비게이션
+      router.push('nextStepRoute');
     },
     goToPreviousStep({ commit }, fieldsToReset) {
       // 초기화할 필드를 가지고 있는 배열을 받아와서 필요한 데이터만 초기화

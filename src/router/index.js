@@ -11,6 +11,7 @@ import reflection from '@/views/cardDetailView/reflectionWrite.vue'
 import subjectInput from '@/views/addCardView/subjectInput.vue'
 import iconSelection from '@/views/addCardView/iconSelection.vue'
 import contentsInput from '@/views/addCardView/contentsInput.vue'
+import ruleSet from '@/views/addCardView/ruleSetView.vue'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,11 @@ const routes = [
       name: 'contents',
       component: contentsInput 
     },
+    {
+      path: 'ruleSet',
+      name: 'ruleSet',
+      component: ruleSet
+    }
   ]
 },
 { 
