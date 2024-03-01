@@ -1,10 +1,10 @@
 {
   "card": [
     {
-      "id": "1060",
+      "id": "981c",
       "icon": "📚",
-      "subject": "Test123",
-      "text": "Test2",
+      "subject": "새로운 목표 세우기 TEst",
+      "text": "새로운 Test",
       "rule": null,
       "days": [],
       "time": null,
@@ -12,21 +12,10 @@
       "timeRange": null
     },
     {
-      "id": "2a6c",
-      "icon": "💵",
-      "subject": "Real Last..!",
-      "text": "Reaaaaallly last?",
-      "rule": null,
-      "days": [],
-      "time": null,
-      "dates": null,
-      "timeRange": null
-    },
-    {
-      "id": "1e70",
+      "id": "71c3",
       "icon": "🏠",
-      "subject": "Home Test",
-      "text": "Home Test",
+      "subject": "Test2",
+      "text": "Test 2345",
       "rule": null,
       "days": [],
       "time": null,
