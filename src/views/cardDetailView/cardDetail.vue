@@ -3,12 +3,7 @@
     <header>
       <headerBack :title="card ? card.subject : '제목이 비었습니다.'" :backRoute="'Home'" />      
     </header>
-    <div>
-      <b-nav pills class="navStyle">
-        <b-nav-item :active="selectedTab === 'info'" @click="selectTab('goalinfo')">목표정보</b-nav-item>
-        <b-nav-item :active="selectedTab === 'review'" @click="selectTab('reflection')">회고</b-nav-item>
-      </b-nav>
-    </div>
+    <TabSelector :selectedTabName="selectedTabName" :tabs="tabs" @tab-selected="selectTab" />
     <div>
       <router-view />
     </div>
@@ -57,6 +52,7 @@
 
 <script>
 import headerBack from '@/components/headerBack.vue';
+import TabSelector from '@/components/selectTab.vue';
 import Modal from '@/components/deleteModalView.vue';
 import axios from 'axios';
 
@@ -64,11 +60,17 @@ export default {
   components: {
     headerBack,
     Modal,
+    TabSelector,
   },
   data() {
     return {
       card: null,
-      selectedTab: 'info',
+      //Nav Select
+      selectedTabName: 'goalinfo',
+      tabs: [
+        { name: 'goalinfo', label: '목표정보' },
+        { name: 'reflection', label: '회고' }
+      ]
     };
   },
   mounted() {
@@ -83,11 +85,6 @@ export default {
       } catch (error) {
         console.error('Error fetching card data:', error);
       }
-    },
-    selectTab(tab) {
-      this.selectedTab = tab;
-      // 해당 탭에 맞는 라우트로 이동
-      this.$router.push({ name: tab, params: { id: this.$route.params.id } });
     },
     showDeleteModal() {
       // 삭제 확인 모달 열기
@@ -109,6 +106,9 @@ export default {
         console.error('Error deleting card:', error);
       }
     },
+    selectTab(tabName) {
+    this.selectedTabName = tabName;
+    }
   },
 };
 </script>
@@ -116,7 +116,20 @@ export default {
 <style scoped>
 .navStyle {
   display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 10px 0;
 }
+
+.nav-item {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-bottom: 4px solid transparent;
+}
+
+.nav-item.active {
+  border-bottom-color: #000000;
+  color: #000000;
+}
+
 </style>

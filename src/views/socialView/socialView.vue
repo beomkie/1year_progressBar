@@ -1,13 +1,14 @@
 <template>
     <div>
         <div>
-            <Header title="성취" />
+            <Header title="소셜" />
         </div>
         <TabSelector :selectedTabName="selectedTabName" :tabs="tabs" @tab-selected="selectTab" />
-        <div class="system-font">
-            <p>{{ userName }}님의 {{ currentYear }}년 목표 수행률</p>
+        <div>
+            <router-view />
         </div>
     </div>
+    
 </template>
 
 <script>
@@ -21,22 +22,13 @@ export default {
     },
     data() {
         return {
-            userName: 'beomkie',
             //Nav Select
-            selectedTabName: 'archivement',
+            selectedTabName: 'following',
             tabs: [
-                { name: 'archivements', label: '전체수행률' },
-                { name: 'badge', label: '뱃지' }
+                { name: 'following', label: '팔로잉' },
+                { name: 'recommand', label: '추천' }
             ]
         }
-    },
-    computed: {
-        currentYear() {
-            const currentDate = new Date();
-            const currentYear = currentDate.getFullYear();
-
-            return currentYear;
-        },
     },
     methods: {
         selectTab(tabName) {
@@ -44,7 +36,6 @@ export default {
         }
     }
 }
-
 </script>
 
 <style scoped>
@@ -70,4 +61,5 @@ export default {
   border-bottom-color: #000000;
   color: #000000;
 }
+
 </style>

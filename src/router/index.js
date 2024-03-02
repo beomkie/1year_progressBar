@@ -4,7 +4,7 @@ import Home from '@/views/homeView.vue'
 import myProfile from '@/views/myProfile.vue'
 import myArchievement from '@/views/myArchievement'
 import addCard from '@/views/addCardView/addCard'
-import socialView from '@/views/socialView'
+import socialView from '@/views/socialView/socialView'
 import cardDetail from '@/views/cardDetailView/cardDetail'
 import goalinfo from '@/views/cardDetailView/goalInfo'
 import reflection from '@/views/cardDetailView/reflectionWrite.vue'
@@ -12,6 +12,8 @@ import subjectInput from '@/views/addCardView/subjectInput.vue'
 import iconSelection from '@/views/addCardView/iconSelection.vue'
 import contentsInput from '@/views/addCardView/contentsInput.vue'
 import ruleSet from '@/views/addCardView/ruleSetView.vue'
+import following from '@/views/socialView/followingView.vue';
+import recommand from '@/views/socialView/recommandView.vue';
 
 Vue.use(VueRouter)
 
@@ -61,13 +63,26 @@ const routes = [
 { 
   path: '/socialView', 
   name: 'socialView',
-  component: socialView 
+  component: socialView,
+  redirect: '/socialView/following',
+  children: [
+    {
+      path: 'following',
+      name: 'following',
+      component: following
+    },
+    {
+      path: 'recommand',
+      name: 'recommand',
+      componet: recommand
+    }
+  ]
 },
 {
   path: '/cardDetail/:id', 
   name: 'cardDetail',
   component: cardDetail,
-  redirect: '/cardDetail/:id/goalinfo', // 부모 컴포넌트 진입 시 기본적으로 goalinfo로 리다이렉트
+  redirect: '/cardDetail/:id/goalinfo',
   children: [
     {
       path: 'goalinfo',
