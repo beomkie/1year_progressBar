@@ -1,15 +1,17 @@
 <template>
-    <b-form>
-        <b-form-group label="목표 구체화" label-for="contents" class="mb-5">
-            <b-form-textarea v-model="contents" placeholder="도달하고자 하는 목표를 구체적으로 작성해보세요." rows="3" max-rows="100" required></b-form-textarea>
-        </b-form-group>
+    <div class="form-setup">
+        <b-form>
+            <b-form-group label="목표 구체화" label-for="contents" class="mb-5">
+                <b-form-textarea v-model="contents" placeholder="도달하고자 하는 목표를 구체적으로 작성해보세요." rows="3" max-rows="100" required></b-form-textarea>
+            </b-form-group>
 
-        <div v-if="!contents && showErrorMessage" class="text-danger mt-2">구체적인 목표를 입력해 보세요!</div>
-
-        <b-button @click="goToNextStep" variant="primary" class="w-100 mt-3">다음</b-button>
-        <b-button @click="previousStep" variant="outline-secondary" class="w-100">이전</b-button>
-    </b-form>
-    
+            <div v-if="!contents && showErrorMessage" class="text-danger mt-2">구체적인 목표를 입력해 보세요!</div>
+            <div class="button-container">
+                <b-button @click="goToNextStep" variant="primary" class="w-100 mt-3 mb-3" style="height: 50px">다음</b-button>
+                <b-button @click="previousStep" variant="outline-secondary" class="w-100" style="height: 50px">이전</b-button>
+            </div>
+        </b-form>
+    </div>
 </template>
 
 <script>
@@ -54,6 +56,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.form-setup {
+  padding: 20px;
+  margin-top: 40px;
+}
 
+.button-container {
+  position: fixed;
+  margin-top: 30px;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 100px
+}
 </style>

@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="form-setup">
     <b-form-select v-model="selectedIcon" :options="iconOptions" id="icon" class="form-control"></b-form-select>
     <!-- 아이콘 미션택에 대한 에러 메시지 -->
     <div v-if="!selectedIcon && showErrorMessage" class="text-danger mt-2">아이콘을 선택하지 않았습니다!</div>
-    <b-button @click="goToNextStep" variant="primary" class="w-100 mt-3">다음</b-button>
+    <div class="button-container">
+      <b-button @click="goToNextStep" variant="primary" class="w-100 mt-3" style="height: 50px;">다음</b-button>
+    </div>
   </div>
 </template>
 
@@ -50,3 +52,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.form-setup {
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.button-container {
+  position: fixed;
+  margin-top: 30px;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 100px
+}
+</style>

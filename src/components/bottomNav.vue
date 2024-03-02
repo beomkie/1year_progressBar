@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 800px;">
+  <div>
     <nav :style="navStyle">
       <b-navbar fixed="bottom" type="dark" variant="black" style="height: 70px;">
         <b-collapse id="nav-collapse" is-nav>

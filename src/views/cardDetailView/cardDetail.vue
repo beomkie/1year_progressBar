@@ -45,7 +45,6 @@
           </template>
           <template v-else-if="card.rule === '매월' && Array.isArray(card.dates)">
             <p>Dates: {{ card.dates.join(', ') }}</p>
-            <p>Time Range: {{ card.timeRange }}</p>
           </template>
         </div>
       </b-card>

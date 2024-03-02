@@ -16,7 +16,6 @@ export default new Vuex.Store({
       days: [],
       time: null,
       dates: null,
-      timeRange: null,
     },
   },
   mutations: {
@@ -32,7 +31,6 @@ export default new Vuex.Store({
         days: [],
         time: null,
         dates: null,
-        timeRange: null,
       };
     },
   },

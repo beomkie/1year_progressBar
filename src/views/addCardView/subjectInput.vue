@@ -1,14 +1,15 @@
 <template>
-  <div>
+  <div class="form-setup">
     <b-form @submit.prevent="submitSubject">
       <b-form-group label="목표 제목 설정하기" label-for="subject" class="mb-5">
         <b-form-input v-model="subject" id="subject" placeholder="목표 제목을 입력하세요." class="form-control"></b-form-input>
       </b-form-group>
       <!-- 아무것도 입력하지 않았을 때 에러 메시지 표시 -->
       <div v-if="!subject && showErrorMessage" class="text-danger mt-2">제목을 입력하지 않았습니다!</div>
-      
-      <b-button @click="goToNextStep" variant="primary" class="w-100 mt-3">다음</b-button>
-      <b-button @click="previousStep" variant="outline-secondary" class="w-100">이전</b-button>
+      <div class="button-container">
+        <b-button @click="goToNextStep" variant="primary" class="w-100 mt-3 mb-3" style="height: 50px;">다음</b-button>
+        <b-button @click="previousStep" variant="outline-secondary" class="w-100" style="height: 50px;">이전</b-button>
+      </div>
     </b-form>
   </div>
 </template>
@@ -61,4 +62,17 @@ export default {
 </script>
 
 <style scoped>
+.form-setup {
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.button-container {
+  position: fixed;
+  margin-top: 30px;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 100px
+}
 </style>

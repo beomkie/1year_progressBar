@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <navbar />       
+    <!-- 스크롤되는 컨텐츠를 감싸는 컨테이너 -->
+    <div class="content-container">
+      <router-view></router-view>
+    </div>
+    <!-- 하단에 고정된 NavBar -->
+    <navbar />
   </div>
 </template>
 
@@ -22,15 +26,16 @@ export default {
         width: '100%', // 너비를 100%로 설정하여 화면 가로폭에 맞춤
         zIndex: '1000', // 다른 요소 위에 올라오도록 zIndex 설정
       },
+      navHeight: 50, // NavBar의 높이
     };
   },
   mounted() {
-    document.body.style.overflowX = 'hidden';
-    document.body.style.overflowY = 'scroll';
+    // NavBar의 높이를 content-container의 padding-bottom으로 설정
+    document.querySelector('.content-container').style.paddingBottom = this.navHeight + 'px';
   },
   beforeDestroy() {
-    document.body.style.overflowX = 'auto';
-    document.body.style.overflowY = 'auto';
+    // 컴포넌트가 파괴되기 전에 padding-bottom을 초기화
+    document.querySelector('.content-container').style.paddingBottom = '0';
   },
 }
 </script>
@@ -45,16 +50,24 @@ export default {
   color: #2c3e50;
   margin-top: 0px;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
+/* 스크롤되는 컨텐츠를 감싸는 컨테이너의 스타일 */
+.content-container {
+  overflow-y: auto; /* 세로 스크롤만 허용 */
+  max-height: calc(100vh - 50px); /* 화면 높이에서 NavBar의 높이를 뺀 값으로 최대 높이 설정 */
+}
+
+/* 나머지 스타일은 여기에 추가 */
 .topview {
-    padding-top: 50px;
-    padding-bottom: 10px;
+  padding-top: 50px;
+  padding-bottom: 10px;
 }
 
 .topview h1 {
-    font-weight: 600;
-    margin-top: 50px;
+  font-weight: 600;
+  margin-top: 50px;
 }
 
 .home-button {
@@ -67,6 +80,5 @@ export default {
   font-weight: 500;
   color:black;
 }
-
 
 </style>

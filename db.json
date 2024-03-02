@@ -1,26 +1,34 @@
 {
   "card": [
     {
-      "id": "981c",
-      "icon": "📚",
-      "subject": "새로운 목표 세우기 TEst",
-      "text": "새로운 Test",
+      "id": "b05c",
+      "icon": "🏠",
+      "subject": "Data1",
+      "text": "Data1",
       "rule": null,
       "days": [],
       "time": null,
-      "dates": null,
-      "timeRange": null
+      "dates": null
     },
     {
-      "id": "71c3",
+      "id": "954a",
       "icon": "🏠",
-      "subject": "Test2",
-      "text": "Test 2345",
+      "subject": "Data2",
+      "text": "Data2",
       "rule": null,
       "days": [],
       "time": null,
-      "dates": null,
-      "timeRange": null
+      "dates": null
+    },
+    {
+      "id": "d151",
+      "icon": "🏠",
+      "subject": "Data3",
+      "text": "Data34",
+      "rule": null,
+      "days": [],
+      "time": null,
+      "dates": null
     }
   ]
 }

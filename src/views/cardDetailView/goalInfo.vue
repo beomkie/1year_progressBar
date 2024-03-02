@@ -24,7 +24,7 @@
         </template>
         <template v-else-if="card && card.rule === '매월'">
           <p>Dates: {{ card.dates && card.dates.length > 0 ? card.dates.join(', ') : '매월 수행할 날짜가 없습니다.' }}</p>
-          <p>Time Range: {{ card.timeRange ? card.timeRange : '시간 범위가 설정되지 않았습니다.' }}</p>
+          <p>Time Range: {{ card.time ? card.time : '시간이 설정되지 않았습니다.' }}</p>
         </template>
       </b-card>
     </div>
