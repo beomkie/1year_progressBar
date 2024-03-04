@@ -3,6 +3,7 @@
 ## Version manage for git
 Ver.0.0.1.1
 develop in mini
+편집 기능 구현: Subject and contents
 
 ## Project setup
 ```

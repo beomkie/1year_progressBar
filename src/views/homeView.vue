@@ -3,7 +3,7 @@
       <div>
         <Header title="홈" />
       </div>
-      <div>
+      <div class="background-container">
         <yearcount />
       </div>
       <div class="system-font">
@@ -82,6 +82,14 @@
     color: gray;
     text-align: center;
     margin-top: 20px;
+  }
+  .background-container {
+    background-color: #76b2ff;
+    border-radius: 20px; 
+    padding: 20px 40px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 360px;
+    margin: 0 auto;
   }
   </style>
   

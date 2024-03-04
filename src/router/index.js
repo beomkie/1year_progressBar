@@ -119,7 +119,7 @@ const routes = [
   ]
 },
 {
-  path: 'editpage',
+  path: '/editpage/:id',
   name: 'editpage',
   component: editPage
 }

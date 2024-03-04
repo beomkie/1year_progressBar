@@ -26,7 +26,7 @@
         // 이전으로 가기 버튼 클릭 시 goToPreviousAllreset 액션 실행
         this.goToPreviousAllreset();
         // 이전 페이지로 이동하는 코드
-        this.$router.push({name: this.backRoute}) // 이전 페이지로 이동
+        this.$router.push(this.backRoute) // 이전 페이지로 이동
       },
     },
   };

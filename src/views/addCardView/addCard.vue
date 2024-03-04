@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <headerBack title="목표 추가하기" :backRoute="'Home'" @back="goBack" />
+      <headerBack title="목표 추가하기" :backRoute="'/'" @back="goBack" />
     </div>
     <div>
       <router-view></router-view>
