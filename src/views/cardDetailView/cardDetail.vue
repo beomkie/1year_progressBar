@@ -1,24 +1,31 @@
 <template>
   <div>
     <header>
-      <headerBack :title="card ? card.subject : '제목이 비었습니다.'" :backRoute="'Home'" />      
+      <headerBack :title="card ? card.subject : 'Error :('" :backRoute="'Home'" />      
     </header>
     <TabSelector :selectedTabName="selectedTabName" :tabs="tabs" @tab-selected="selectTab" />
     <div>
       <router-view />
     </div>
-    <div>
-      <b-button @click="showDeleteModal" variant="danger" style="margin-left: 0px; margin-top: 30px;">
+    <div class="button-style" v-if="selectedTabName === 'goalinfo'">
+      <b-button @click="goEditpage" variant="outline-primary" style="margin-bottom: 10px;">
+        편집하기
+      </b-button>
+      <b-button @click="showDeleteModal" variant="danger">
         삭제하기
       </b-button>
+    </div>
+
+    <div>
       <!-- 삭제 확인 모달 -->
       <Modal
         :modalId="'deleteConfirmation'"
-        title="카드 삭제"
+        title="목표카드 삭제하기"
         @close="cancelDelete"
         @delete="deleteCard"
       >
-        <p>정말로 이 카드를 삭제하시겠습니까?</p>
+        <p>정말로 이 목표카드를 삭제하시겠습니까?</p>
+        <p style="color: red;">삭제 이후 목표를 복원할 수 없습니다.</p>
       </Modal>
     </div>
     
@@ -108,7 +115,9 @@ export default {
     },
     selectTab(tabName) {
       this.selectedTabName = tabName;
-      console.log(this.selectedTabName)
+    },
+    goEditpage() {
+      this.$router.push({ name: 'editpage'});
     }
   },
 };
@@ -132,5 +141,11 @@ export default {
   border-bottom-color: #000000;
   color: #000000;
 }
+.button-style {
+  display: flex; 
+  flex-direction: column;
+  Padding: 10px;
+}
 
 </style>
+

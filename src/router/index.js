@@ -16,6 +16,7 @@ import following from '@/views/socialView/followingView.vue';
 import recommand from '@/views/socialView/recommandView.vue';
 import allProgress from '@/views/archievementView/allProgress.vue';
 import badgeView from '@/views/archievementView/badgeView.vue';
+import editPage from '@/views/cardDetailView/editPage.vue';
 
 Vue.use(VueRouter)
 
@@ -109,9 +110,19 @@ const routes = [
       path: 'reflection',
       name: 'reflection',
       component: reflection
-    }
+    },
+    // {
+    //   path: 'editpage',
+    //   name: 'editpage',
+    //   component: editPage
+    // }
   ]
 },
+{
+  path: 'editpage',
+  name: 'editpage',
+  component: editPage
+}
 
 ]
 

@@ -42,14 +42,13 @@
     color: black;
   }
   .back-button {
-    cursor: pointer;
-    position: absolute;
+    position: relative;
     top: 20px;
-    left: 20px;
+    left: -160px;
     width: 45px;
     height: 40px;
-    margin-top: 20px;
-    margin-left: -15px;
+    margin-top: 15px;
+    margin-bottom: -80px;
   }
   </style>
   

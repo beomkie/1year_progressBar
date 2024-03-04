@@ -1,5 +1,5 @@
 <template>
-  <h1>Following</h1>
+  <h1>Following Page</h1>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Recommand</h2>
+    <h2>Recommand Page</h2>
   </div>
 </template>
 

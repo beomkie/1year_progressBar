@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Badge View Test</h1>
+    <h1>Badge View Page</h1>
   </div>
 </template>
 

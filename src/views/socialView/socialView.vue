@@ -33,7 +33,6 @@ export default {
     methods: {
         selectTab(tabName) {
             this.selectedTabName = tabName;
-            console.log(this.selectedTabName);
         }
     }
 }

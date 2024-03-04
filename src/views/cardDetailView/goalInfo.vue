@@ -8,7 +8,7 @@
     <div class="container mt-4">
       <b-card>
         <h3>목표 디테일</h3>
-        <p>{{ card && card.text ? card.text : '목표가 없습니다.' }}</p>
+        <p style="text-align: left;">{{ card && card.text ? card.text : '목표가 없습니다.' }}</p>
       </b-card>
     </div>
     <div class="container mt-4">
@@ -57,6 +57,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 </style>

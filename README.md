@@ -1,6 +1,8 @@
 # 1y_progress
 
-## Notice for computer Share
+## Version manage for git
+Ver.0.0.1.1
+develop in mini
 
 ## Project setup
 ```
