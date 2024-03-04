@@ -26,8 +26,8 @@ props: {
 },
 methods: {
   selectTab(tabName) {
-    this.$emit('tab-selected', tabName);
     this.$router.push({ name: tabName }); // 라우터로 페이지 변경
+    this.$emit('tab-selected', tabName);
   }
 }
 };

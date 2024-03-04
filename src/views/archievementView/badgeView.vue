@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Recommand</h2>
+    <h1>Badge View Test</h1>
   </div>
 </template>
 

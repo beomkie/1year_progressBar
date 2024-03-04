@@ -4,8 +4,8 @@
             <Header title="성취" />
         </div>
         <TabSelector :selectedTabName="selectedTabName" :tabs="tabs" @tab-selected="selectTab" />
-        <div class="system-font">
-            <p>{{ userName }}님의 {{ currentYear }}년 목표 수행률</p>
+        <div>
+            <router-view />
         </div>
     </div>
 </template>
@@ -23,24 +23,17 @@ export default {
         return {
             userName: 'beomkie',
             //Nav Select
-            selectedTabName: 'archivement',
+            selectedTabName: 'allProgress',
             tabs: [
-                { name: 'archivements', label: '전체수행률' },
-                { name: 'badge', label: '뱃지' }
+                { name: 'allProgress', label: '전체수행률' },
+                { name: 'badgeView', label: '뱃지' }
             ]
         }
     },
-    computed: {
-        currentYear() {
-            const currentDate = new Date();
-            const currentYear = currentDate.getFullYear();
-
-            return currentYear;
-        },
-    },
     methods: {
         selectTab(tabName) {
-        this.selectedTabName = tabName;
+            this.selectedTabName = tabName;
+            console.log(this.selectedTabName)
         }
     }
 }

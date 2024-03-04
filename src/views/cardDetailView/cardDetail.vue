@@ -107,7 +107,8 @@ export default {
       }
     },
     selectTab(tabName) {
-    this.selectedTabName = tabName;
+      this.selectedTabName = tabName;
+      console.log(this.selectedTabName)
     }
   },
 };

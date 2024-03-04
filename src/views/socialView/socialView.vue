@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div>
+        <header>
             <Header title="소셜" />
-        </div>
+        </header>
         <TabSelector :selectedTabName="selectedTabName" :tabs="tabs" @tab-selected="selectTab" />
         <div>
             <router-view />
@@ -32,7 +32,8 @@ export default {
     },
     methods: {
         selectTab(tabName) {
-        this.selectedTabName = tabName;
+            this.selectedTabName = tabName;
+            console.log(this.selectedTabName);
         }
     }
 }
