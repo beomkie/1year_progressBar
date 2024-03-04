@@ -111,11 +111,6 @@ const routes = [
       name: 'reflection',
       component: reflection
     },
-    // {
-    //   path: 'editpage',
-    //   name: 'editpage',
-    //   component: editPage
-    // }
   ]
 },
 {

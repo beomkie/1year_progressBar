@@ -7,7 +7,7 @@
         <yearcount />
       </div>
       <div class="system-font">
-        <p>{{ currentYear }}년 나의 목표</p>
+        <p>{{ currentYear }}년 {{ userName }}님의 목표</p>
       </div>
       <div>
         <card v-if="cards.length > 0" :cardData="cards" />
@@ -38,6 +38,7 @@
     data() {
       return {
         cards: [],
+        userName: 'beomkie',
       }
     },
     computed: {
@@ -86,10 +87,12 @@
   .background-container {
     background-color: #76b2ff;
     border-radius: 20px; 
-    padding: 20px 40px; 
+    padding: 10px 40px; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 360px;
+    height: 220px;
     margin: 0 auto;
+    margin-top: 30px;
   }
   </style>
   

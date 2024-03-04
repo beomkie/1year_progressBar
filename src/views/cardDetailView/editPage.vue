@@ -5,15 +5,19 @@
     </header> 
     <div>
       <b-card>
-        <b-form @submit.prevent="saveChanges">
-          <b-form-group label="목표 제목">
-            <!-- 목표 Subject Input -->
-            <b-form-textarea v-model="goalSubject" placeholder="제목을 입력하세요..."></b-form-textarea>
-          </b-form-group>
-          <b-form-group label="목표 디테일">
-            <!-- 목표 Contents Input -->
-            <b-form-textarea v-model="goalText" placeholder="목표를 입력하세요..."></b-form-textarea>
-          </b-form-group>
+          <b-form @submit.prevent="saveChanges">
+            <b-form-group label="아이콘 수정">
+              <!-- Icon Input -->
+              <b-form-textarea v-model="goalIcon" placeholder="아이콘을 입력하세요..."></b-form-textarea>
+            </b-form-group>
+            <b-form-group label="목표 제목 수정하기">
+              <!-- 목표 Subject Input -->
+              <b-form-textarea v-model="goalSubject" placeholder="제목을 입력하세요..."></b-form-textarea>
+            </b-form-group>
+            <b-form-group label="목표 디테일 수정하기">
+              <!-- 목표 Contents Input -->
+              <b-form-textarea v-model="goalText" placeholder="목표를 입력하세요..."></b-form-textarea>
+            </b-form-group>
 
           <b-button type="submit" variant="primary">저장</b-button>
         </b-form>
@@ -29,6 +33,7 @@ import headerBack from '@/components/headerBack.vue';
 export default {
   data() {
     return {
+      goalIcon: '',
       goalSubject: '',
       goalText: '', // 편집할 목표 텍스트를 담을 데이터
     }
@@ -45,6 +50,7 @@ export default {
       try {
         const response = await axios.get(`http://localhost:3000/card/${cardId}`);
         const card = response.data;
+        this.goalIcon = card.icon;
         this.goalSubject = card.subject;
         this.goalText = card.text; // 편집할 목표 텍스트를 가져와서 데이터에 저장
       } catch(error) {
@@ -56,9 +62,9 @@ export default {
   try {
     // 수정할 필드들을 데이터 객체에 추가
     const data = {
-      subject: this.goalSubject, // 수정할 주제
-      text: this.goalText, // 수정할 목표 텍스트
-      // 다른 필드들도 필요에 따라 추가
+      icon: this.goalIcon, // icon 수정
+      subject: this.goalSubject, // subject 수정
+      text: this.goalText, //text 수정
     };
 
     // axios.put 요청
