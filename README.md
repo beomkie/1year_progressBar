@@ -1,9 +1,8 @@
 # 1y_progress
 
 ## Version manage for git
-Ver.0.0.1.2
-develop in mini
-편집 기능 구현: Subject and contents + icon 까지
+Ver: mini030601
+회고 페이지 제작 시작
 
 ## Project setup
 ```

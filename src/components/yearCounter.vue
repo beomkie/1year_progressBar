@@ -2,8 +2,8 @@
     <div class="progress-container">
       <h3>지금은 {{ currentYear }}년</h3>
       <div class="remaining-days">
-        <p>새해가 시작하고 {{ passDate }}일이 지났습니다.</p>
-        <p>앞으로 남은 {{ currentYear }}년, {{ DdayCalc }}일</p>
+        <p>새해가 시작되고 {{ passDate }}일이 지났습니다.</p>
+        <p>앞으로 남은 {{ currentYear }}년은 {{ DdayCalc }}일.</p>
       </div>
       <div class="progress-wrapper">
         <b-progress :max="100" :style="progressContainerStyle">

@@ -1,27 +1,30 @@
 <template>
   <div>
     <header>
-      <headerBack title="편집하기" :backRoute="'/'" /> 
+      <headerBack title="편집하기" :backRoute="`/cardDetail/${$route.params.id}/goalinfo`" /> 
     </header> 
     <div>
-      <b-card>
-          <b-form @submit.prevent="saveChanges">
-            <b-form-group label="아이콘 수정">
-              <!-- Icon Input -->
-              <b-form-textarea v-model="goalIcon" placeholder="아이콘을 입력하세요..."></b-form-textarea>
-            </b-form-group>
-            <b-form-group label="목표 제목 수정하기">
-              <!-- 목표 Subject Input -->
-              <b-form-textarea v-model="goalSubject" placeholder="제목을 입력하세요..."></b-form-textarea>
-            </b-form-group>
-            <b-form-group label="목표 디테일 수정하기">
-              <!-- 목표 Contents Input -->
-              <b-form-textarea v-model="goalText" placeholder="목표를 입력하세요..."></b-form-textarea>
-            </b-form-group>
+        <b-form @submit.prevent="saveChanges" class="container-style">
+          <b-form-group label="아이콘 수정" class="title-style">
+            <!-- Icon Input -->
+            <b-form-textarea v-model="goalIcon" placeholder="아이콘을 입력하세요..."></b-form-textarea>
+          </b-form-group>
+          <b-form-group label="목표 제목 수정하기" class="title-style">
+            <!-- 목표 Subject Input -->
+            <b-form-textarea v-model="goalSubject" placeholder="제목을 입력하세요..."></b-form-textarea>
+          </b-form-group>
+          <b-form-group label="목표 디테일 수정하기" class="title-style" >
+            <!-- 목표 Contents Input -->
+            <b-form-textarea 
+              v-model="goalText" 
+              laceholder="목표를 입력하세요..." 
+              style="height: 200px;"
+              >
+            </b-form-textarea>
+          </b-form-group>
 
-          <b-button type="submit" variant="primary">저장</b-button>
-        </b-form>
-      </b-card>
+        <b-button type="submit" variant="primary" class="button-style">저장하기</b-button>
+      </b-form>
     </div>
   </div>
 </template>
@@ -82,6 +85,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.button-style {
+  Padding: 10px;
+  margin-top: 10px;
+  width: 360px;
+}
+.container-style {
+  margin: 10px;
+}
+.title-style {
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #000000;
+}
 
 </style>
