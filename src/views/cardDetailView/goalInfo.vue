@@ -6,13 +6,13 @@
       </b-card>
     </div>
     <div class="container mt-4">
-      <b-card>
+      <div class="contetnts-style">
         <h3>목표 디테일</h3>
         <p style="text-align: left;">{{ card && card.text ? card.text : '목표가 없습니다.' }}</p>
-      </b-card>
+      </div>
     </div>
     <div class="container mt-4">
-      <b-card>
+      <div class="rule-style">
         <h3>설정된 규칙</h3>
         <p>{{ card && card.rule ? card.rule : '규칙이 설정되지 않았습니다.' }}</p>
         <template v-if="card && card.rule === '매주'">
@@ -26,7 +26,7 @@
           <p>Dates: {{ card.dates && card.dates.length > 0 ? card.dates.join(', ') : '매월 수행할 날짜가 없습니다.' }}</p>
           <p>Time Range: {{ card.time ? card.time : '시간이 설정되지 않았습니다.' }}</p>
         </template>
-      </b-card>
+      </div>
     </div>
   </div>
 </template>
@@ -58,5 +58,25 @@ export default {
 </script>
 
 <style scoped>
+.contetnts-style {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+.contetnts-style h3 {
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.contetnts-style p {
+  margin: 10px;
+}
+.rule-style{
+  margin-bottom: 60px;
+}
+.rule-style h3 {
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
 
 </style>

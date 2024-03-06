@@ -1,8 +1,9 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini030601
-회고 페이지 제작 시작
+Ver: pro030602
+- cardDetail 페이지 디테일 업
+- 목표 추가하기 이모지 피커 작업 중(ing)
 
 ## Project setup
 ```
