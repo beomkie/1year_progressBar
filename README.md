@@ -1,8 +1,8 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: pro030602
-- cardDetail 페이지 디테일 업
+Ver: mini030701
+- 검색 페이지 디자인 완성(기능은 아직)
 - 목표 추가하기 이모지 피커 작업 중(ing)
 
 ## Project setup

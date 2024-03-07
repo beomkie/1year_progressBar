@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/homeView.vue'
-import myProfile from '@/views/myProfile.vue'
+import myPage from '@/views/myPage.vue'
 import myArchievement from '@/views/archievementView/myArchievement'
 import addCard from '@/views/addCardView/addCard'
 import socialView from '@/views/socialView/socialView'
@@ -17,6 +17,7 @@ import recommand from '@/views/socialView/recommandView.vue';
 import allProgress from '@/views/archievementView/allProgress.vue';
 import badgeView from '@/views/archievementView/badgeView.vue';
 import editPage from '@/views/cardDetailView/editPage.vue';
+import userSearch from '@/views/socialView/userSearch.vue';
 
 Vue.use(VueRouter)
 
@@ -27,9 +28,9 @@ const routes = [
   component: Home 
 },
 { 
-  path: '/myprofile', 
-  name: 'myProfile',
-  component: myProfile 
+  path: '/myPage', 
+  name: 'myPage',
+  component: myPage 
 },
 { 
   path: '/myArchievement', 
@@ -92,8 +93,13 @@ const routes = [
       path: 'recommand',
       name: 'recommand',
       component: recommand
-    }
+    },
   ]
+},
+{
+  path: 'userSearch',
+  name: 'userSearch',
+  component: userSearch
 },
 {
   path: '/cardDetail/:id', 

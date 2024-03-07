@@ -7,7 +7,7 @@
             <b-nav-item @click="selectedNavItem = 'home'" to="/" :style="{ fontWeight: selectedNavItem === 'home' ? 'bold' : 'normal', color: selectedNavItem === 'home' ? 'white' : 'inherit' }">홈</b-nav-item>
             <b-nav-item @click="selectedNavItem = 'social'" to="/socialView" :style="{ fontWeight: selectedNavItem === 'social' ? 'bold' : 'normal', color: selectedNavItem === 'social' ? 'white' : 'inherit' }">소셜</b-nav-item>
             <b-nav-item @click="selectedNavItem = 'myArchievement'" to="/myArchievement" :style="{ fontWeight: selectedNavItem === 'myArchievement' ? 'bold' : 'normal', color: selectedNavItem === 'myArchievement' ? 'white' : 'inherit' }">성취</b-nav-item>
-            <b-nav-item @click="selectedNavItem = 'myprofile'" to="/myprofile" :style="{ fontWeight: selectedNavItem === 'myprofile' ? 'bold' : 'normal', color: selectedNavItem === 'myprofile' ? 'white' : 'inherit' }">MY</b-nav-item>
+            <b-nav-item @click="selectedNavItem = 'myPage'" to="/myPage" :style="{ fontWeight: selectedNavItem === 'myprofile' ? 'bold' : 'normal', color: selectedNavItem === 'myprofile' ? 'white' : 'inherit' }">MY</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>

@@ -14,7 +14,6 @@
         v-if="showEmojiPicker"
         @select="addEmoji"
         title="아이콘 선택하기"
-        set="emojione"
         :skin="2"
         :size="24"
       />
@@ -42,6 +41,12 @@ export default {
       selectedIcon: '', // 선택된 이모지
     };
   },
+  props: {
+  multiCustom: {
+    type: Object,
+    default: () => ({}) // 함수로 기본값 설정
+  }
+  },
   methods: {
     ...mapActions(['updateIconAndNavigate']), // mapActions를 사용하여 액션 매핑
 
@@ -62,7 +67,11 @@ export default {
     },
 
     onBlur() {
-      // 포커스를 잃었을 때 이모지 피커 닫기
+      // 입력창에서 포커스를 잃었을 때 이모지 피커가 닫히도록 처리
+      const icon = this.selectedIcon;
+      if(!icon) {
+        return;
+      }
       setTimeout(() => {
         this.showEmojiPicker = false;
       }, 200);
@@ -70,6 +79,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 .form-setup {
