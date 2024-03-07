@@ -25,18 +25,15 @@
             <p>(프로필 메시지)</p>
             <p>(인스타그램 주소)</p>
         </div>
-        <div class="menu-style">
-            <hr>
-            <p>내 프로필 바로가기</p>
-            <hr>
-            <p>결제 설정</p>
-            <hr>
-            <p>알림설정</p>
-            <hr>
-            <p>이용약관</p>
-            <hr>
+        <div style="margin-top: 40px;">
+            <b-list-group class="menu-style">
+                <b-list-group-item href="#" class="menu-item-style">프로필 설정</b-list-group-item>
+                <b-list-group-item href="#" class="menu-item-style">결제 설정</b-list-group-item>
+                <b-list-group-item href="#" class="menu-item-style">알림설정</b-list-group-item>
+                <b-list-group-item href="#" class="menu-item-style">이용약관</b-list-group-item>
+                <b-list-group-item @click="gotoLogin" class="menu-item-style">로그인(임시연결)</b-list-group-item>
+            </b-list-group>
         </div>
-        
     </div>
 </template>
 
@@ -60,6 +57,11 @@ export default {
             },
         }
     },
+    methods: {
+        gotoLogin() {
+            this.$router.push({ name: 'loginPage'});
+        }
+    }
 
 }
 
@@ -83,10 +85,10 @@ export default {
     font-size: 13px;
 }
 .menu-style {
-    margin-top: 30px;
-}
-.menu-style p {
     text-align: left;
-    margin-left: 25px;
+    border-radius: 0px;
+}
+.menu-item-style {
+    padding: 15px 20px;
 }
 </style>

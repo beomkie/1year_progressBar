@@ -18,6 +18,7 @@ import allProgress from '@/views/archievementView/allProgress.vue';
 import badgeView from '@/views/archievementView/badgeView.vue';
 import editPage from '@/views/cardDetailView/editPage.vue';
 import userSearch from '@/views/socialView/userSearch.vue';
+import loginPage from '@/views/loginPage.vue';
 
 Vue.use(VueRouter)
 
@@ -123,12 +124,18 @@ const routes = [
   path: '/editpage/:id',
   name: 'editpage',
   component: editPage
+},
+{
+  path:'/loginPage',
+  name: 'loginPage',
+  component: loginPage
 }
 
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
-})
+});
 
 export default router
