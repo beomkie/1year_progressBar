@@ -26,6 +26,7 @@
       <template v-else-if="ruleData.rule === '매월'">
         <b-form-group label="날짜 선택하기:" label-for="dates" class="mb-3">
           <b-form-select v-model="ruleData.dates" :options="datesOptions" id="dates" class="form-control"></b-form-select>
+          <!-- <b-form-datepicker id="dates" v-model="ruleData.dates" class="form-control"></b-form-datepicker> -->
         </b-form-group>
         <b-form-group label="시간 선택하기:" label-for="time" class="mb-3">
           <b-form-select v-model="ruleData.time" type="time" id="time" class="form-control"></b-form-select>

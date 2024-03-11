@@ -1,10 +1,10 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini030701
-- 검색 페이지 디자인 완성(기능은 아직)
-- 목표 추가하기 이모지 피커 완성(오류가 하나 있긴하지만 작동)
-- 카카오 로그인 연동까지는 완료(로그인 처리는 구현 필요)
+Ver: mini031101
+- 카드 디테일에서 아이콘 함께 뜨게 하기(headerBack 수정)
+- 등등...
+
 
 ## Project setup
 ```

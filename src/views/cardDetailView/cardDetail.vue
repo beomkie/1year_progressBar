@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <headerBack :title="card ? card.subject : 'Error :('" :backRoute="'/'" />      
+      <headerBack :title="card ? card.subject : 'Error :('" :backRoute="'/'" :icon="card.icon" />      
     </header>
     <TabSelector :selectedTabName="selectedTabName" :tabs="tabs" @tab-selected="selectTab" />
     <div>

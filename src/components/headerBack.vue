@@ -1,8 +1,12 @@
 <template>
-    <header>
-      <img src="@/assets/arrow.png" alt="뒤로가기" @click="goToPrevious" class="back-button">
-      <h1 class="page-title">{{ title }}</h1>
-    </header>
+    <div>
+      <div>
+        <img src="@/assets/arrow.png" alt="뒤로가기" @click="goToPrevious" class="back-button">
+      </div>
+      <div>
+        <h1 class="page-title">{{ icon }} {{ title }}</h1>
+      </div>
+    </div>
   </template>
   
   <script>
@@ -18,6 +22,9 @@
         type: String,
         required: true,
       },
+      icon: {
+        type: String,
+      }
     },
     methods: {
       ...mapActions(['goToPreviousAllreset']), // mapActions를 사용하여 액션 매핑
