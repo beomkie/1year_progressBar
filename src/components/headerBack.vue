@@ -24,7 +24,7 @@
       },
       icon: {
         type: String,
-      }
+      },
     },
     methods: {
       ...mapActions(['goToPreviousAllreset']), // mapActions를 사용하여 액션 매핑

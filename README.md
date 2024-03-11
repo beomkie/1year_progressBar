@@ -1,9 +1,8 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini031101
-- 카드 디테일에서 아이콘 함께 뜨게 하기(headerBack 수정)
-- 등등...
+Ver: mini031201
+- cardDetail.vue icon 오류 해결 
 
 
 ## Project setup
