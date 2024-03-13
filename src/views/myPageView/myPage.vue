@@ -22,12 +22,12 @@
             </div>
         </div>
         <div class="profile-data">
-            <p>(프로필 메시지)</p>
-            <p>(인스타그램 주소)</p>
+            <p>{{ user.profileMessage }}</p>
+            <p>{{ user.instaId }}</p>
         </div>
         <div style="margin-top: 40px;">
             <b-list-group class="menu-style">
-                <b-list-group-item href="#" class="menu-item-style">프로필 설정</b-list-group-item>
+                <b-list-group-item  @click="gotoeditProfile" class="menu-item-style">프로필 수정</b-list-group-item>
                 <b-list-group-item href="#" class="menu-item-style">결제 설정</b-list-group-item>
                 <b-list-group-item href="#" class="menu-item-style">알림설정</b-list-group-item>
                 <b-list-group-item href="#" class="menu-item-style">이용약관</b-list-group-item>
@@ -50,7 +50,7 @@ export default {
                 nickname: 'beomkie', // 사용자의 닉네임
                 email: 'gb3205@gorgeouswrks.com', // 사용자의 이메일
                 name: '이기범', //사용자 이름
-                profileMessage: 'empty', //자기소개 
+                profileMessage: 'Do not go gentel into that good night', //자기소개 
                 profileImageURL: 'https://example.com/profile_image.jpg', // 프로필 이미지의 URL
                 instaId: 'beomkie',
                 
@@ -60,6 +60,9 @@ export default {
     methods: {
         gotoLogin() {
             this.$router.push({ name: 'loginPage'});
+        },
+        gotoeditProfile() {
+            this.$router.push({ name: 'editprofile' })
         }
     }
 

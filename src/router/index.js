@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/homeView.vue'
-import myPage from '@/views/myPage.vue'
+import myPage from '@/views/myPageView/myPage.vue'
 import myArchievement from '@/views/archievementView/myArchievement'
 import addCard from '@/views/addCardView/addCard'
 import socialView from '@/views/socialView/socialView'
@@ -19,6 +19,7 @@ import badgeView from '@/views/archievementView/badgeView.vue';
 import editPage from '@/views/cardDetailView/editPage.vue';
 import userSearch from '@/views/socialView/userSearch.vue';
 import loginPage from '@/views/loginPage.vue';
+import editProfile from '@/views/myPageView/editProfile.vue';
 
 Vue.use(VueRouter)
 
@@ -31,7 +32,12 @@ const routes = [
 { 
   path: '/myPage', 
   name: 'myPage',
-  component: myPage 
+  component: myPage,
+},
+{
+  path: 'editprofile',
+  name: 'editprofile',
+  component: editProfile
 },
 { 
   path: '/myArchievement', 

@@ -1,8 +1,8 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini031201
-- cardDetail.vue icon 오류 해결 
+Ver: mini031401
+- 프로필 수정 페이지 추가
 
 
 ## Project setup
