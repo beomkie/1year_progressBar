@@ -59,7 +59,12 @@ export default {
     },
     methods: {
         gotoLogin() {
+            //임시연결
             this.$router.push({ name: 'loginPage'});
+        },
+        gotoRegister() {
+            //임시연결
+            this.$router.push({ name: 'register' });
         },
         gotoeditProfile() {
             this.$router.push({ name: 'editprofile' })

@@ -2,7 +2,8 @@
   <div>
     <div>
       <img src="@/assets/gorgeous.png" alt="Logo img" class="logo-style">
-      <P class="title-style">로그인을 진행해주세요!</P>
+      <P class="title-style">올 한 해를 완벽하게 마무리하는 법</P>
+      <p class="text-style">시작하기</p>
     </div>
     <div>
       <a id="custom-login-btn" @click="kakaoLogin()">
@@ -60,9 +61,14 @@ export default {
   margin-top: 130px;
 }
 .title-style {
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 20px;
-  font-weight: 600;
+  font-weight: 800;
+}
+.text-style {
+  font-size: 15px;
+  margin-top: 40px;
+  font-weight: 500;
 }
 .kakao-button-style {
   width: 300px;

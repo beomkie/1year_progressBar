@@ -1,8 +1,8 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini031401
-- 프로필 수정 페이지 추가
+Ver: mini031402
+- 프로필 수정 그리기 완료
 
 
 ## Project setup

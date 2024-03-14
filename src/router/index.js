@@ -135,7 +135,7 @@ const routes = [
   path:'/loginPage',
   name: 'loginPage',
   component: loginPage
-}
+},
 
 ]
 
