@@ -1,9 +1,10 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini031404
-- Progress Bar 컴포넌트 필요한 곳 적용
-- 프로필 카드 반 완성(나머지 반 완성하기)
+Ver: pro031405
+- 팔로잉 프로필 뷰 완성
+- 유저 프로필 뷰 제작 시작
+- 유저 프로필에 목표 카드 뷰 컴포넌트 만들기 시작
 
 
 ## Project setup
