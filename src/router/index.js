@@ -20,6 +20,7 @@ import editPage from '@/views/cardDetailView/editPage.vue';
 import userSearch from '@/views/socialView/userSearch.vue';
 import loginPage from '@/views/loginPage.vue';
 import editProfile from '@/views/myPageView/editProfile.vue';
+import profileView from '@/views/myPageView/profileView';
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [
   path: 'editprofile',
   name: 'editprofile',
   component: editProfile
+},
+{
+  path: 'profileView',
+  name: 'profileView',
+  component: profileView
 },
 { 
   path: '/myArchievement', 

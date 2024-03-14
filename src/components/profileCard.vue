@@ -2,14 +2,15 @@
   <div class="card-container">
     <div class="card">
         <div class="card-header">
-            <p>Profile</p>
+          <img src="@/assets/Ellipse 1.png" alt="프로필 이미지" class="profile-style">
+          <h3 class="userName">UserName1234</h3>
         </div>
         <div class="card-body">
             <div>
-                <p>(Progress Area)</p>
+              <progressBar />
             </div>
             <div>
-                <p>(Badge Area)</p>
+                <badgeView />
             </div>
         </div>
     </div>
@@ -17,7 +18,14 @@
 </template>
 
 <script>
+import progressBar from '@/components/progressBar.vue';
+import badgeView from '@/components/badgeVIew.vue';
+
 export default {
+  components: {
+    progressBar,
+    badgeView,
+  }
 
 }
 </script>
@@ -49,9 +57,17 @@ export default {
   padding: 10px;
   border-bottom: 1px solid #ccc;
   text-align: center;
+  display: flex;
 }
-
 .card-body {
   padding: 20px;
+}
+.profile-style {
+  width: 40px;
+}
+.userName {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 15px;
 }
 </style>

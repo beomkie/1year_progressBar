@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Following Page</h1>
-    <profileCard />
+    <div @click="gotoProfile">
+      <profileCard />
+    </div>
   </div>
 </template>
 
@@ -11,6 +12,11 @@ import profileCard from '@/components/profileCard.vue';
 export default {
   components: {
     profileCard,
+  },
+  methods: {
+    gotoProfile() {
+      this.$router.push({ name: 'profileView' })
+    }
   }
 
 }

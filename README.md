@@ -1,8 +1,10 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini031402
-- 프로필 수정 그리기 완료
+Ver: mini031403
+- 프로그레스바 컴포넌트 추가
+- 뱃지 미리보기 컴포넌트 추가
+- 프로필 페이지 제작 시작
 
 
 ## Project setup
