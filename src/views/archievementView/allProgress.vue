@@ -1,14 +1,22 @@
 <template>
   <div>
     <div class="system-font">
-            <p>{{ userName }}님의 {{ currentYear }}년 목표 수행률</p>
+            <p>{{ userName }}님의 {{ currentYear }}년 전체 목표 수행률</p>
+    </div>
+    <div class="progress-container">
+      <progressBar />
     </div>
   </div>
   
 </template>
 
 <script>
+import progressBar from '@/components/progressBar.vue';
+
 export default {
+  components: {
+    progressBar,
+  },
   data() {
     return {
       userName: 'Beomkie',
@@ -32,5 +40,7 @@ export default {
     font-weight: 600;
     color: black;
 }
-
+.progress-container {
+  margin: 10px;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container">
+  <div class="card-container" @click="gotoProfile">
     <div class="card">
         <div class="card-header">
           <img src="@/assets/Ellipse 1.png" alt="프로필 이미지" class="profile-style">
@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <div>
-              <progressBar />
+              <progressBar :title="prgressTitle" />
             </div>
             <div>
                 <badgeView />
@@ -22,9 +22,19 @@ import progressBar from '@/components/progressBar.vue';
 import badgeView from '@/components/badgeVIew.vue';
 
 export default {
+  data() {
+    return {
+      prgressTitle: '전체수행률',
+    };
+  },
   components: {
     progressBar,
     badgeView,
+  },
+  methods: {
+    gotoProfile() {
+      this.$router.push({ name: 'profileView' })
+    }
   }
 
 }

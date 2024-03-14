@@ -1,10 +1,9 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini031403
-- 프로그레스바 컴포넌트 추가
-- 뱃지 미리보기 컴포넌트 추가
-- 프로필 페이지 제작 시작
+Ver: mini031404
+- Progress Bar 컴포넌트 필요한 곳 적용
+- 프로필 카드 반 완성(나머지 반 완성하기)
 
 
 ## Project setup

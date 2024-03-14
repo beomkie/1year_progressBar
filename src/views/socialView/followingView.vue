@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @click="gotoProfile">
+    <div>
       <profileCard />
     </div>
   </div>
@@ -13,11 +13,8 @@ export default {
   components: {
     profileCard,
   },
-  methods: {
-    gotoProfile() {
-      this.$router.push({ name: 'profileView' })
-    }
-  }
+  
+  
 
 }
 </script>

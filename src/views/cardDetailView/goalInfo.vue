@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="container mt-4">
-      <b-card>
+      <div class="progress-container">
         <p>목표 진행률(Progress Bar)</p>
-      </b-card>
+        <progressBar />
+      </div>
     </div>
     <div class="container mt-4">
       <div class="contetnts-style">
@@ -33,12 +34,16 @@
 
 <script>
 import axios from 'axios';
+import progressBar from '@/components/progressBar.vue';
 
 export default {
   data() {
     return {
       card: null,
     };
+  },
+  components: {
+    progressBar,
   },
   mounted() {
     this.fetchCardData();
@@ -58,6 +63,10 @@ export default {
 </script>
 
 <style scoped>
+.progress-container {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
 .contetnts-style {
   margin-top: 40px;
   margin-bottom: 60px;
