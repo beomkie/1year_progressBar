@@ -41,6 +41,6 @@ export default {
     color: black;
 }
 .progress-container {
-  margin: 10px;
+  margin: 15px;
 }
 </style>

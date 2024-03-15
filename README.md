@@ -1,7 +1,7 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: pro031405
+Ver: pro031501
 - 팔로잉 프로필 뷰 완성
 - 유저 프로필 뷰 제작 시작
 - 유저 프로필에 목표 카드 뷰 컴포넌트 만들기 시작
