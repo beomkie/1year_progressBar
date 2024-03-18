@@ -50,6 +50,9 @@ export default {
 .container {
   margin-bottom: 20px;
 }
+.container p {
+  color: black;
+}
 
 .progress-wrapper {
   display: flex;

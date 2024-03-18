@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <headerBack title="편집하기" :backRoute="`/cardDetail/${$route.params.id}/goalinfo`" /> 
+      <headerBack title="목표 수정하기" :backRoute="`/cardDetail/${$route.params.id}/goalinfo`" /> 
     </header> 
     <div>
         <b-form @submit.prevent="saveChanges" class="container-style">
