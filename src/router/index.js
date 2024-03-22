@@ -21,6 +21,8 @@ import userSearch from '@/views/socialView/userSearch.vue';
 import loginPage from '@/views/loginPage.vue';
 import editProfile from '@/views/myPageView/editProfile.vue';
 import profileView from '@/views/myPageView/profileView';
+import deadlineSet from '@/views/addCardView/deadlineSet.vue';
+import shareToggle from '@/views/addCardView/shareToggle.vue';
 
 Vue.use(VueRouter)
 
@@ -88,6 +90,16 @@ const routes = [
       path: 'ruleSet',
       name: 'ruleSet',
       component: ruleSet
+    },
+    {
+      path: 'deadline',
+      name: 'deadline',
+      component: deadlineSet
+    },
+    {
+      path: 'shareToggle',
+      name: 'shareToggle',
+      component: shareToggle
     }
   ]
 },

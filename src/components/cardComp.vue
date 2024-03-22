@@ -3,11 +3,13 @@
     <div class="card" v-for="(card, index) in cardData" :key="index">
       <div class="card-header">
         <h6>{{ card.icon }}</h6>
+        <h5 class="card-title">{{ card.subject }}</h5>
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{ card.subject }}</h5>
-        <p class="card-text">{{ card.rule }}</p>
-        <p>(Prgress Bar Area)</p>
+        <p class="semi-title">현재 달성률</p>
+        <progressBar />
+        <p class="semi-title">규칙</p>
+        <p class="card-text">{규칙 데이터}</p>
         <router-link :to="'/cardDetail/' + card.id" class="btn btn-primary button-style">자세히 보기</router-link>
       </div>
     </div>
@@ -15,7 +17,12 @@
 </template>
 
 <script>
+import progressBar from './progressBar.vue';
+
 export default {
+  components: {
+    progressBar,
+  },
   props: ['cardData']
 };
 </script>
@@ -46,7 +53,13 @@ export default {
   background-color: #f0f0f0;
   padding: 10px;
   border-bottom: 1px solid #ccc;
-  text-align: center;
+  display: flex;
+  justify-content: left;
+}
+.card-header h6 {
+  font-size: 20px;
+  margin-left: 6px;
+  margin-right: 10px;
 }
 
 .card-body {
@@ -55,8 +68,12 @@ export default {
 
 .card-title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 18px;
   font-weight: bold;
+}
+.semi-title {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .card-text {

@@ -16,6 +16,7 @@ export default new Vuex.Store({
       days: [],
       time: null,
       dates: null,
+      deadline: '',
     },
   },
   mutations: {
@@ -31,6 +32,7 @@ export default new Vuex.Store({
         days: [],
         time: null,
         dates: null,
+        deadline: '',
       };
     },
   },
@@ -54,6 +56,11 @@ export default new Vuex.Store({
     //규칙(Rules) 전역 저장 및 푸시
     updpateRulesAndNavigate({ commit },{ rule, router }) {
       commit('updateFormData', { rule })
+      router.push('deadline')
+    },
+    //마감일(deadline 전역 저장 및 푸시
+    updateDeadlineAndNavigate({ commit },{ deadline, router }) {
+      commit('updateDeadline',{ deadline })
       router.push('#')
     },
     async createGoalAction({ commit, state }) {

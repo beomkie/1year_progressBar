@@ -1,8 +1,9 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: pro031801
-- 일부 디테일한 디자인 수정
+Ver: mini032301
+- 백엔드 DB 연결 전 버전 백업
+- 마감일, 공유 여부 페이지 추가만 함
 
 
 ## Project setup

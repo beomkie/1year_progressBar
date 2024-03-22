@@ -42,5 +42,6 @@ export default {
 }
 .progress-container {
   margin: 15px;
+  margin-top: 30px;
 }
 </style>

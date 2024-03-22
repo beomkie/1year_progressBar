@@ -11,6 +11,16 @@
       "subject": "집을 구매하고 싶어요",
       "text": "수정 테스트",
       "id": "7f45"
+    },
+    {
+      "id": "c8c7",
+      "icon": "😃",
+      "subject": "Test2",
+      "text": "qwerty",
+      "rule": null,
+      "days": [],
+      "time": null,
+      "dates": null
     }
   ]
 }
