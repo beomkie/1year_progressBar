@@ -1,13 +1,20 @@
 <template>
   <div>
     <p>deadline set</p>
-    <div class="button-container">
-
+    <div ref="calendarPortal" class="calendar-portal">
+      <b-form-datepicker v-model="date" :calendar-portal-target="calendarPortal"></b-form-datepicker>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      date: null,
+    };
+  },
+}
 
 </script>
 
@@ -19,6 +26,15 @@
   margin-left: auto;
   margin-right: auto;
   bottom: 100px
+}
+.date-container {
+  margin: 20px;
+  margin-top: 30px;
+}
+.calendar-portal {
+  position: absolute;
+  top: 250px; 
+  left: 100px; 
 }
 
 </style>

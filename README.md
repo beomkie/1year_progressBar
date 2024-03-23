@@ -1,9 +1,9 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini032301
-- 백엔드 DB 연결 전 버전 백업
-- 마감일, 공유 여부 페이지 추가만 함
+Ver: mini032401
+- 목표 생성 데이터 베이스 vuex 전역 관리 80% 완료
+- 마감일 설정 페이지 시작(Bootstrap-vue Calander)
 
 
 ## Project setup

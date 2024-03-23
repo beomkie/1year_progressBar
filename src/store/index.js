@@ -2,21 +2,26 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from 'axios'; // axios 추가
+import axios from 'axios';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     formData: {
-      icon: null,
-      subject: '',
-      text: '',
-      rule: null,
-      days: [],
-      time: null,
-      dates: null,
-      deadline: '',
+      title: " ",
+      contents: " ",
+      icon: " ",
+      endDate: " ",
+      shareStatus: null,
+      goalStatus: null,
+      ruleReqDto:
+      {
+        routine: null,
+        timeAt: " ",
+        contents: " ",
+        ruleRepeatList: [],
+      }
     },
   },
   mutations: {
@@ -25,14 +30,19 @@ export default new Vuex.Store({
     },
     resetFormData(state) {
       state.formData = {
-        icon: null,
-        subject: '',
-        text: '',
-        rule: null,
-        days: [],
-        time: null,
-        dates: null,
-        deadline: '',
+        title: " ",
+        contents: " ",
+        icon: " ",
+        endDate: " ",
+        shareStatus: null,
+        goalStatus: null,
+        ruleReqDto:
+        {
+          routine: null,
+          timeAt: " ",
+          contents: " ",
+          ruleRepeatList: [],
+        }
       };
     },
   },
@@ -43,19 +53,19 @@ export default new Vuex.Store({
       commit('updateFormData', { icon });
       router.push('subjectinput');
     },
-    //subjeect 전역 저장 및 라우터 푸시
-    updateSubjectAndNavigate({ commit }, { subject, router }) {
-      commit('updateFormData', { subject });
+    //title 전역 저장 및 라우터 푸시
+    updateTitleAndNavigate({ commit }, { title, router }) {
+      commit('updateFormData', { title });
       router.push('contents');
     },
     //콘텐츠(텍스트) 전역 저장 및 푸시
-    updateContentsAndNavigate({ commit },{ text, router }) {
-      commit('updateFormData', { text });
+    updateContentsAndNavigate({ commit },{ contents, router }) {
+      commit('updateFormData', { contents });
       router.push('ruleSet');
     },
     //규칙(Rules) 전역 저장 및 푸시
-    updpateRulesAndNavigate({ commit },{ rule, router }) {
-      commit('updateFormData', { rule })
+    updpateRulesAndNavigate({ commit },{ ruleReqDto, router }) {
+      commit('updateFormData', { ruleReqDto })
       router.push('deadline')
     },
     //마감일(deadline 전역 저장 및 푸시
