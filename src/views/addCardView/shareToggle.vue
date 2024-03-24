@@ -1,45 +1,84 @@
 <template>
   <div>
-    <p>share Toggle</p>
-    <!-- <b-button type="submit" variant="primary" class="w-100 mt-3 mb-3" style="height: 50px;">목표 생성하기</b-button> -->
+    <div class="intro-header">
+      <p>공유여부</p>
+    </div>
+    <div>
+      <b-button :variant="myToggle ? 'primary' : 'danger'" @click="toggleButton" class="toggle-style">
+        {{ myToggle ? '공유할래요!' : '공유하지 않을래요' }}
+      </b-button>
+    </div>
+    <div class="button-container">
+      <b-button type="submit" variant="primary" class="w-100 mt-3 mb-3" style="height: 50px;" @click="submitGoal">목표 생성하기</b-button>
+      <b-button @click="previousStep" variant="outline-secondary" class="w-100" style="height: 50px;">이전</b-button>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
-  // methods: {
-  //   ...mapActions(['updateRulesAndNavigate', 'goToPreviousStep', 'createGoalAction']),
+  data() {
+    return {
+      myToggle: false,
+    };
+  },
+  methods: {
+    ...mapActions(['updateTitleAndNavigate', 'goToPreviousStep', 'createGoalAction']),
 
-  //   async updateRulesAndCreateGoal() {
-  //     const rules = this.ruleData
-  //     if (!rules) {
-  //       this.showErrorMessage = true;
-  //       console.log(rules)
-  //       return;
-  //     }
-  //     this.showErrorMessage = false;
+    toggleButton() {
+      this.myToggle = !this.myToggle;
+    },
 
-  //     const created = await this.createGoalAction({ formData: this.ruleData }); // ruleData 전달
-  //     if (created) {
-  //       // 생성 성공
-  //       // 이후 필요한 동작 수행 (예: 다음 단계로 네비게이션)
-  //       this.$router.push('/');
-  //     } else {
-  //       // 생성 실패
-  //       console.log('Fail to create the Goal')
-  //     }
-  //   },
+      
+    async updateRulesAndCreateGoal() {
+      const shared = this.myToggle ? 1 : 0;
+      if (!shared) {
+        this.showErrorMessage = true;
+        return;
+      }
+      this.showErrorMessage = false;
 
-  //   previousStep() {
-  //     // 이전으로 가기 버튼 클릭 시 goToPreviousStep 액션 실행
-  //     this.goToPreviousStep(['contents']); // 초기화할 필드 목록 전달
-  //     this.$router.go(-1);
-  //   },
-  // },
-
+      const created = await this.createGoalAction({ formData: this.ruleData }); // ruleData 전달
+      if (created) {
+        this.$router.push('/');
+      } else {
+        // 생성 실패
+        console.log('Fail to create the Goal')
+      }
+    },
+    previousStep() {
+      // 이전으로 가기 버튼 클릭 시 goToPreviousAllreset 액션 실행
+      this.goToPreviousStep(['shared']);
+      this.$router.go(-1);
+    },
+    
+  },
+  
 }
 </script>
 
 <style scoped>
+.intro-header {
+  margin: 20px;
+  margin-top: 50px;
+}
+.intro-header p {
+  font-size: 20px;
+}
+.toggle-style {
+  width: 250px;
+  height: 60px;
+  margin-top: 40px;
+}
+.button-container {
+  position: fixed;
+  margin-top: 30px;
+  width: 350px;
+  margin-left: 20px;
+  margin-right: auto;
+  bottom: 100px
+}
 
 </style>

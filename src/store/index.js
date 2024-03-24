@@ -68,10 +68,14 @@ export default new Vuex.Store({
       commit('updateFormData', { ruleReqDto })
       router.push('deadline')
     },
-    //마감일(deadline 전역 저장 및 푸시
-    updateDeadlineAndNavigate({ commit },{ deadline, router }) {
-      commit('updateDeadline',{ deadline })
-      router.push('#')
+    //마감일(deadline) 전역 저장 및 푸시
+    updateendDateAndNavigate({ commit },{ endDate, router }) {
+      commit('updateFormData',{ endDate })
+      router.push('shareToggle')
+    },
+    //공유여부(ShareToggle) 전역 저장
+    updateshareToggle({ commit },{ shareStatus }) {
+      commit('updateFormData',{ shareStatus })
     },
     async createGoalAction({ commit, state }) {
       try {

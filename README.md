@@ -1,9 +1,9 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini032401
-- 목표 생성 데이터 베이스 vuex 전역 관리 80% 완료
-- 마감일 설정 페이지 시작(Bootstrap-vue Calander)
+Ver: mini032402
+- 목표 생성 데이터 베이스 vuex 전역 관리 90% 완료
+- 마감일 및 공유 여부 페이지 설정 완료
 
 
 ## Project setup
