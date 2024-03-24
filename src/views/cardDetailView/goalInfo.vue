@@ -13,20 +13,25 @@
       </div>
     </div>
     <div class="container mt-4">
-      <div class="rule-style">
+      <div class="rule-container">
         <h3>설정된 규칙</h3>
-        <p>{{ card && card.rule ? card.rule : '규칙이 설정되지 않았습니다.' }}</p>
-        <template v-if="card && card.rule === '매주'">
-          <p>Days: {{ card.days && card.days.length > 0 ? card.days.join(', ') : '매주 수행할 날짜가 없습니다.' }}</p>
-          <p>Time: {{ card.timeAt ? card.timeAt : '시간이 설정되지 않았습니다.' }}</p>
-        </template>
-        <template v-else-if="card && card.rule === '매일'">
-          <p>Time: {{ card.timeAt ? card.timeAt : '시간이 설정되지 않았습니다.' }}</p>
-        </template>
-        <template v-else-if="card && card.rule === '매월'">
-          <p>Dates: {{ card.dates && card.dates.length > 0 ? card.dates.join(', ') : '매월 수행할 날짜가 없습니다.' }}</p>
-          <p>Time Range: {{ card.timeAt ? card.timeAt : '시간이 설정되지 않았습니다.' }}</p>
-        </template>
+        <div>
+          
+        </div>
+        <div>
+          <p>{{ card && card.ruleReqDto.routine ? card.ruleReqDto.routine : '규칙이 설정되지 않았습니다.' }}</p>
+          <template v-if="card && card.ruleReqDto.routine === 2">
+            <p>Days: {{ card.days && card.days.length > 0 ? card.days.join(', ') : '매주 수행할 날짜가 없습니다.' }}</p>
+            <p>Time: {{ card.ruleReqDto.timeAt ? card.ruleReqDto.timeAt : '시간이 설정되지 않았습니다.' }}</p>
+          </template>
+          <template v-else-if="card && card.ruleReqDto.routine === 1">
+            <p>Time: {{ card.ruleReqDto.timeAt ? card.ruleReqDto.timeAt : '시간이 설정되지 않았습니다.' }}</p>
+          </template>
+          <template v-else-if="card && card.ruleReqDto.routine === 3">
+            <p>Dates: {{ card.dates && card.dates.length > 0 ? card.dates.join(', ') : '매월 수행할 날짜가 없습니다.' }}</p>
+            <p>Time Range: {{ card.ruleReqDto.timeAt ? card.ruleReqDto.timeAt : '시간이 설정되지 않았습니다.' }}</p>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -79,13 +84,17 @@ export default {
 .contetnts-style p {
   margin: 10px;
 }
-.rule-style{
+.rule-container{
   margin-bottom: 60px;
 }
-.rule-style h3 {
+.rule-container h3 {
   text-align: left;
   margin-left: 10px;
   margin-bottom: 20px;
+}
+.rule-style {
+  justify-content: left;
+  margin-left: 20px;
 }
 
 </style>

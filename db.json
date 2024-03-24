@@ -1,18 +1,18 @@
 {
   "card": [
     {
-      "id": "1a8c",
-      "title": "Test",
-      "contents": "Test 1234",
-      "icon": "😎",
-      "endDate": "2022-11-29",
-      "shareStatus": null,
+      "id": "e5bb",
+      "title": "지중해 여행을 목표로 예산 모으기",
+      "contents": "내년에 지중해 여행을 가기 위해서 올 한 해 동안 돈 모으기",
+      "icon": "🏖️",
+      "endDate": "2024-12-31",
+      "shareStatus": 1,
       "goalStatus": null,
       "ruleReqDto": {
-        "routine": 1,
-        "timeAt": "12:59",
-        "contents": "contents",
-        "ruleRepeatList": []
+        "routine": 3,
+        "timeAt": "18:00",
+        "contents": "월급날 저녁에 돈 입금하기",
+        "ruleRepeatList": 20
       }
     }
   ]

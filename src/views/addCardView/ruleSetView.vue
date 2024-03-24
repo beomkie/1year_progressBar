@@ -51,25 +51,25 @@
           <b-form-textarea v-model="ruleData.contents" placeholder="매월 실행할 행위를 작성해 보세요." rows="3" max-rows="100" required></b-form-textarea>
         </b-form-group>
       </template>
-
-      <!-- 바인딩 테스트 -->
-      <div class="mt-3">
-        <p>선택된 규칙: {{ ruleData.routine }}</p>
-        <p>선택된 요일: {{ ruleData.ruleRepeatList }}</p>
-        <p>선택된 시간: {{ ruleData.timeAt }}</p>
-        <p>선택된 날짜: {{ ruleData.ruleRepeatList }}</p>
-      </div>
-      <div class="button-container">
-        <p
+      <p
           v-if="showErrorMessage"
           class="text-danger mt-2"
         >
           규칙을 설정해야 합니다.
       </p>
-        <!-- <b-button type="submit" variant="primary" class="w-100 mt-3 mb-3" style="height: 50px;">목표 생성하기</b-button> -->
+
+      <!-- 바인딩 테스트 -->
+      <!-- <div class="mt-3">
+        <p>선택된 규칙: {{ ruleData.routine }}</p>
+        <p>선택된 요일: {{ ruleData.ruleRepeatList }}</p>
+        <p>선택된 시간: {{ ruleData.timeAt }}</p>
+        <p>선택된 날짜: {{ ruleData.ruleRepeatList }}</p>
+      </div> -->
+      <div class="button-container" v-if="ruleData.routine === 1 || ruleData.routine === 2 || ruleData.routine === 3">
         <b-button @click="goToNextStep" variant="primary" class="w-100 mt-3 mb-3" style="height: 50px;">다음</b-button>
         <b-button @click="previousStep" variant="outline-secondary" class="w-100" style="height: 50px;">이전</b-button>
       </div>
+
     </b-form>
   </div>
 </template>
@@ -174,7 +174,6 @@ export default {
   margin-top: -20px;
 }
 .button-container {
-  position: fixed;
   margin-top: 30px;
   width: 350px;
   margin-left: auto;

@@ -14,8 +14,9 @@
         v-if="showEmojiPicker"
         @select="addEmoji"
         title="아이콘 선택하기"
+        emoji="smiley"
         :skin="2"
-        :size="24"
+        :size="26"
       />
     </div>
     <!-- 아이콘 미션택에 대한 에러 메시지 -->
@@ -28,7 +29,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { Picker as EmojiMart } from 'emoji-mart-vue-2'; // EmojiMart 컴포넌트 가져오기
+import { Picker as EmojiMart } from 'emoji-mart-vue-2';
 
 export default {
   components: {

@@ -25,7 +25,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['updateTitleAndNavigate', 'goToPreviousStep', 'createGoalAction']),
+    ...mapActions(['updateshareToggle', 'goToPreviousStep', 'createGoalAction']),
 
     toggleButton() {
       this.myToggle = !this.myToggle;
@@ -33,12 +33,14 @@ export default {
 
       
     async submitGoal() {
-      const shared = this.myToggle ? 1 : 0;
-      if (!shared) {
+      const shareStatus = this.myToggle ? 1 : 0;
+      if (!shareStatus) {
         this.showErrorMessage = true;
         return;
       }
+      console.log(shareStatus);
       this.showErrorMessage = false;
+      this.$store.dispatch('updateshareToggle', { shareStatus })
 
       const created = await this.createGoalAction({ formData: this.ruleData }); // ruleData 전달
       if (created) {

@@ -35,9 +35,9 @@
         <div>
           <h1>#Database Test</h1>
           <p>ID: {{ card.id }}</p>
-          <p>Text: {{ card.text }}</p>
+          <p>Text: {{ card.contents }}</p>
           <p>Icon: {{ card.icon }}</p>
-          <p>Rule: {{ card.rule }}</p>
+          <p>Rule: {{ card.ruleReqDto.routine }}</p>
           <template v-if="card.rule === '매주'">
             <p>Days: {{ card.days.join(', ') }}</p>
             <p>Time: {{ card.time }}</p>

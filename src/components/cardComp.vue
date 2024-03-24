@@ -55,9 +55,11 @@ export default {
   border-bottom: 1px solid #ccc;
   display: flex;
   justify-content: left;
+  padding-bottom: 0px;
+  padding-top: 15px;
 }
 .card-header h6 {
-  font-size: 20px;
+  font-size: 26px;
   margin-left: 6px;
   margin-right: 10px;
 }
