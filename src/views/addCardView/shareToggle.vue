@@ -32,7 +32,7 @@ export default {
     },
 
       
-    async updateRulesAndCreateGoal() {
+    async submitGoal() {
       const shared = this.myToggle ? 1 : 0;
       if (!shared) {
         this.showErrorMessage = true;

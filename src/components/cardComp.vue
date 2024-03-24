@@ -3,7 +3,7 @@
     <div class="card" v-for="(card, index) in cardData" :key="index">
       <div class="card-header">
         <h6>{{ card.icon }}</h6>
-        <h5 class="card-title">{{ card.subject }}</h5>
+        <h5 class="card-title">{{ card.title }}</h5>
       </div>
       <div class="card-body">
         <p class="semi-title">현재 달성률</p>

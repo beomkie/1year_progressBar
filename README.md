@@ -1,9 +1,10 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini032402
+Ver: pro032403
 - 목표 생성 데이터 베이스 vuex 전역 관리 90% 완료
-- 마감일 및 공유 여부 페이지 설정 완료
+- 목표 데이터 생성하는거 까지는 완료
+- goalinfo 및 cardComp 일부 디테일 수정
 
 
 ## Project setup

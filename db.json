@@ -1,26 +1,19 @@
 {
   "card": [
     {
-      "icon": "🏎️",
-      "subject": "F1 직관 여행가기",
-      "text": "F1 직관 여행, 올해도 꼭 가고 싶다. 여행 가기 위한 돈 모으기 프로젝트.. 25년에 가야할 수도..?",
-      "id": "6b68"
-    },
-    {
-      "icon": "🏠",
-      "subject": "집을 구매하고 싶어요",
-      "text": "수정 테스트",
-      "id": "7f45"
-    },
-    {
-      "id": "c8c7",
-      "icon": "😃",
-      "subject": "Test2",
-      "text": "qwerty",
-      "rule": null,
-      "days": [],
-      "time": null,
-      "dates": null
+      "id": "1a8c",
+      "title": "Test",
+      "contents": "Test 1234",
+      "icon": "😎",
+      "endDate": "2022-11-29",
+      "shareStatus": null,
+      "goalStatus": null,
+      "ruleReqDto": {
+        "routine": 1,
+        "timeAt": "12:59",
+        "contents": "contents",
+        "ruleRepeatList": []
+      }
     }
   ]
 }

@@ -9,7 +9,7 @@
     <div class="container mt-4">
       <div class="contetnts-style">
         <h3>목표 디테일</h3>
-        <p style="text-align: left;">{{ card && card.text ? card.text : '목표가 없습니다.' }}</p>
+        <p style="text-align: left;">{{ card && card.contents ? card.contents : '목표가 없습니다.' }}</p>
       </div>
     </div>
     <div class="container mt-4">
@@ -18,14 +18,14 @@
         <p>{{ card && card.rule ? card.rule : '규칙이 설정되지 않았습니다.' }}</p>
         <template v-if="card && card.rule === '매주'">
           <p>Days: {{ card.days && card.days.length > 0 ? card.days.join(', ') : '매주 수행할 날짜가 없습니다.' }}</p>
-          <p>Time: {{ card.time ? card.time : '시간이 설정되지 않았습니다.' }}</p>
+          <p>Time: {{ card.timeAt ? card.timeAt : '시간이 설정되지 않았습니다.' }}</p>
         </template>
         <template v-else-if="card && card.rule === '매일'">
-          <p>Time: {{ card.time ? card.time : '시간이 설정되지 않았습니다.' }}</p>
+          <p>Time: {{ card.timeAt ? card.timeAt : '시간이 설정되지 않았습니다.' }}</p>
         </template>
         <template v-else-if="card && card.rule === '매월'">
           <p>Dates: {{ card.dates && card.dates.length > 0 ? card.dates.join(', ') : '매월 수행할 날짜가 없습니다.' }}</p>
-          <p>Time Range: {{ card.time ? card.time : '시간이 설정되지 않았습니다.' }}</p>
+          <p>Time Range: {{ card.timeAt ? card.timeAt : '시간이 설정되지 않았습니다.' }}</p>
         </template>
       </div>
     </div>
