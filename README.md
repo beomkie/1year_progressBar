@@ -1,11 +1,8 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini032404
-- 목표 생성 데이터 베이스 vuex 전역 관리 100% 완료(서버 연결 필요)
-- goalinfo 데이터 수정
-- shareToggle.vue 완료
-- 규칙 등록 버튼 위치 해결 완료
+Ver: mini032601
+- Goal 상세 페이지 제작 중..
 
 
 ## Project setup

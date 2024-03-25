@@ -28,37 +28,11 @@
         <p style="color: red;">삭제 이후 목표를 복원할 수 없습니다.</p>
       </Modal>
     </div>
-    
-    <!-- DataBase Test -->
-    <div class="container mt-4" v-if="card">
-      <b-card>
-        <div>
-          <h1>#Database Test</h1>
-          <p>ID: {{ card.id }}</p>
-          <p>Text: {{ card.contents }}</p>
-          <p>Icon: {{ card.icon }}</p>
-          <p>Rule: {{ card.ruleReqDto.routine }}</p>
-          <template v-if="card.rule === '매주'">
-            <p>Days: {{ card.days.join(', ') }}</p>
-            <p>Time: {{ card.time }}</p>
-          </template>
-          <template v-else-if="card.rule === '매일'">
-            <p>Time: {{ card.time }}</p>
-          </template>
-          <template v-else-if="card.rule === '매월' && Array.isArray(card.dates)">
-            <p>Dates: {{ card.dates.join(', ') }}</p>
-          </template>
-        </div>
-      </b-card>
-    </div>
-    <div v-else>
-      <p>Loading...</p>
-    </div>
   </div>
 </template>
 
 <script>
-import headerBack from '@/components/headerBack.vue';
+import headerBack from '@/components/headerBack_icon.vue';
 import TabSelector from '@/components/selectTab.vue';
 import Modal from '@/components/deleteModalView.vue';
 import axios from 'axios';

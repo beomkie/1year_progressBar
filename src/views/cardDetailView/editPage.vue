@@ -54,8 +54,8 @@ export default {
         const response = await axios.get(`http://localhost:3000/card/${cardId}`);
         const card = response.data;
         this.goalIcon = card.icon;
-        this.goalSubject = card.subject;
-        this.goalText = card.text; // 편집할 목표 텍스트를 가져와서 데이터에 저장
+        this.goalSubject = card.title;
+        this.goalText = card.contents; // 편집할 목표 텍스트를 가져와서 데이터에 저장
       } catch(error) {
         console.error('Error fetching card data:', error);
       }
