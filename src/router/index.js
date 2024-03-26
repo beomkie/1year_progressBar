@@ -23,6 +23,7 @@ import editProfile from '@/views/myPageView/editProfile.vue';
 import profileView from '@/views/myPageView/profileView';
 import deadlineSet from '@/views/addCardView/deadlineSet.vue';
 import shareToggle from '@/views/addCardView/shareToggle.vue';
+import testbed from '@/views/testBed.vue';
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,11 @@ const routes = [
   path: '/', 
   name: 'Home',
   component: Home 
+},
+{
+  path: '/test',
+  name: 'test',
+  component:testbed
 },
 { 
   path: '/myPage', 

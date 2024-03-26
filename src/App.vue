@@ -5,7 +5,9 @@
       <router-view></router-view>
     </div>
     <!-- 하단에 고정된 NavBar -->
-    <navbar />
+    <div class="navStyle">
+      <navbar />
+    </div>
   </div>
 </template>
 
@@ -19,7 +21,6 @@ export default {
   },
   data() {
     return {
-      // 네비게이션 바의 스타일을 동적으로 조절하기 위한 데이터
       navStyle: {
         position: 'fixed', // 고정 위치
         bottom: '0', // 화면 하단에 고정
@@ -51,6 +52,12 @@ export default {
   margin-top: 0px;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+.navStyle {
+  position: fixed; /* 고정 위치 */
+  bottom: 0; /* 화면 하단에 고정 */
+  width: 100%; /* 너비를 100%로 설정하여 화면 가로폭에 맞춤 */
+  z-index: 1000; /* 다른 요소 위에 올라오도록 설정 */
 }
 
 /* 스크롤되는 컨텐츠를 감싸는 컨테이너의 스타일 */

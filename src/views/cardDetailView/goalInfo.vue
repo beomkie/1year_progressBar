@@ -24,7 +24,7 @@
               <!-- 매주라면 -->
               <div v-else-if="card.ruleReqDto.routine === 2">
                 <div v-if="card.ruleReqDto.ruleRepeatList && card.ruleReqDto.ruleRepeatList.length > 0">
-                  
+                  <p>{{ formatWeekdays(card.ruleReqDto.ruleRepeatList) }}</p>
                 </div>   
               </div>
               <!--매달이라면-->
@@ -105,6 +105,21 @@ export default {
 
       const formattedNumbers = dates.join(', ');
       return formattedNumbers + '일';
+    },
+    getDayOfWeek(weekdayNumber) {
+      const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+      return weekdays[weekdayNumber - 1];
+    },
+    formatWeekdays(weekdayNumbers) {
+      if (!Array.isArray(weekdayNumbers)) {
+        return '';
+      }
+
+      const weekdays = weekdayNumbers.map(number => {
+        return this.getDayOfWeek(number);
+      });
+
+      return weekdays.join(', ');
     }
     
   },
@@ -117,7 +132,7 @@ export default {
   margin-bottom: 60px;
 }
 .contetnts-style {
-  margin-top: 40px;
+  margin-top: 60px;
   margin-bottom: 60px;
 }
 .contetnts-style h3 {
