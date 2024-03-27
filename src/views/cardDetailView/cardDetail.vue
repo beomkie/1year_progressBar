@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-style">
     <header>
       <headerBack :title="card ? card.title : 'Error :('" :backRoute="'/'" :icon="card?.icon" />      
     </header>
@@ -25,7 +25,9 @@
         @delete="deleteCard"
       >
         <p>정말로 이 목표카드를 삭제하시겠습니까?</p>
-        <p style="color: red;">삭제 이후 목표를 복원할 수 없습니다.</p>
+        <p class="modalP-style">
+        ❗️삭제 이후 목표를 복원할 수 없습니다.
+        </p>
       </Modal>
     </div>
   </div>
@@ -98,6 +100,9 @@ export default {
 </script>
 
 <style scoped>
+.container-style {
+  margin-bottom: 70px;
+}
 .navStyle {
   display: flex;
   justify-content: space-around;
@@ -119,6 +124,10 @@ export default {
   display: flex; 
   flex-direction: column;
   Padding: 10px;
+}
+.modalP-style {
+  color: #ED0000;
+  font-size: 13px;
 }
 
 </style>

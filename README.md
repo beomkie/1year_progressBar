@@ -1,9 +1,9 @@
 # 1y_progress
 
 ## Version manage for git
-Ver: mini032602
-- Goal 상세 페이지 제작 완료
-- Bottom Nav바 작업, Route 연결 필요
+Ver: mini032701
+- Bottom Nav바 작업 완료
+- Bottoms Nav 기준 페이지 위치 작업 완료
 
 
 ## Project setup

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="nav-style">
+    <nav class="bnav-style">
       <div class="custom-navbar-nav">
         <div @click="selectNavItem('home')" :class="{ 'nav-item': true, 'active': selectedNavItem === 'home' }">
           <img :src="require(`@/assets/${selectedNavItem === 'home' ? 'home-active.png' : 'home-deactive.png'}`)" alt="Home Icon" class="nav-icon">
@@ -24,22 +24,39 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-
 export default {
-  setup() {
-
-    const selectedNavItem = ref('');
-
-    const selectNavItem = (item) => {
-      selectedNavItem.value = item;
-    };
-
+  data() {
     return {
-      selectedNavItem,
-      selectNavItem
+      selectedNavItem: ''
     };
   },
+  methods: {
+    selectNavItem(item) {
+      //페이지 간 이동
+      this.selectedNavItem = item;
+      if (item === 'home') {
+        this.$router.push('/');
+      } else if (item === 'social') {
+        this.$router.push('/socialView');
+      } else if (item === 'myArchievement') {
+        this.$router.push('/myArchievement');
+      } else if (item === 'myPage') {
+        this.$router.push('/myPage');
+      }
+    }
+  },
+  created() {
+    const currentPath = this.$route.path;
+    if (currentPath === '/') {
+      this.selectedNavItem = 'home';
+    } else if (currentPath === '/socialView') {
+      this.selectedNavItem = 'social';
+    } else if (currentPath === '/myArchievement') {
+      this.selectedNavItem = 'myArchievement';
+    } else if (currentPath === '/myPage') {
+      this.selectedNavItem = 'myPage';
+    }
+  }
 };
 </script>
 
@@ -51,7 +68,7 @@ export default {
   padding: 8px;
   border-top: 1px solid #c9c9c9;
 }
-.nav-style {
+.bnav-style {
   background-color: white;
   height: 75px;
 }

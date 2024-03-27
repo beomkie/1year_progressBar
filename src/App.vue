@@ -5,7 +5,7 @@
       <router-view></router-view>
     </div>
     <!-- 하단에 고정된 NavBar -->
-    <div class="navStyle">
+    <div class="bottomNavStyle">
       <navbar />
     </div>
   </div>
@@ -18,17 +18,6 @@ export default {
   name: 'App',
   components: {
     navbar,
-  },
-  data() {
-    return {
-      navStyle: {
-        position: 'fixed', // 고정 위치
-        bottom: '0', // 화면 하단에 고정
-        width: '100%', // 너비를 100%로 설정하여 화면 가로폭에 맞춤
-        zIndex: '1000', // 다른 요소 위에 올라오도록 zIndex 설정
-      },
-      navHeight: 50, // NavBar의 높이
-    };
   },
   mounted() {
     // NavBar의 높이를 content-container의 padding-bottom으로 설정
@@ -53,7 +42,7 @@ export default {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-.navStyle {
+.bottomNavStyle {
   position: fixed; /* 고정 위치 */
   bottom: 0; /* 화면 하단에 고정 */
   width: 100%; /* 너비를 100%로 설정하여 화면 가로폭에 맞춤 */

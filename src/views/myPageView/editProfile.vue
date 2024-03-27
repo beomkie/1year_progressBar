@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-style">
     <header>
       <headerBack title="프로필 수정" :backRoute="'/mypage'" /> 
     </header>
@@ -34,6 +34,9 @@
       <p class="email-style">(사용자 이메일, 소셜에서 받아서 넣기)</p>
       <p class="warn-message">*소셜 로그인을 통해 생성된 이메일 입니다.</p>
     </div>
+    <div class="button-container"> 
+      <b-button variant="primary" class="w-100 mt-3" style="height: 50px;">저장하기</b-button>
+    </div>
   </div>
 </template>
 
@@ -54,6 +57,9 @@ export default {
 </script>
 
 <style scoped>
+.container-style {
+  margin-bottom: 70px;
+}
 .user-image {
   width: 100px;
   margin-top: 30px;
@@ -99,6 +105,12 @@ export default {
   color: #B20000;
   text-align: left;
   margin-left: 10px;
+}
+.button-container {
+  margin-top: 30px;
+  width: 350px;
+  margin-left: 20px;
+  bottom: 100px;
 }
 
 </style>

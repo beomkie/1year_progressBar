@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-style">
       <div>
         <Header title="홈" />
       </div>
@@ -73,6 +73,9 @@
   </script>
   
   <style scoped>
+  .container-style { 
+    margin-bottom: 70px;
+  }
   .system-font {
     margin-top: 50px;
     font-weight: 600;

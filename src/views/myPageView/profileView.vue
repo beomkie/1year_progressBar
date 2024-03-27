@@ -29,7 +29,7 @@
       </div>
     </div>
     <hr>
-    <div>
+    <div class="profileCard-style">
       <otherUserCard />
     </div>
   </div>
@@ -72,6 +72,8 @@ export default {
 }
 .imgButton-style img {
   margin-right: 140px;
+  height: 90px;
+  width: 90px;
 }
 .profileInfo-style {
   margin: 10px;
@@ -99,5 +101,8 @@ export default {
 }
 .badge-container {
   margin-bottom: 30px;
+}
+.profileCard-style {
+  margin-bottom: 50px;
 }
 </style>
